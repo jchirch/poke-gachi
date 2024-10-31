@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './StatPage.css';
+import { useState, useEffect } from "react";
+import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 
-function App() {
+function StatPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          StatPage
         </p>
         <a
           className="App-link"
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default StatPage;
