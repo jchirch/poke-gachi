@@ -52,43 +52,18 @@ function App() {
     fetchData();
 
   }, [])
-  const playAreaPlaceholder = document.getElementById('.play-area');
-  let bgTemp = cityImg;
-  bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
-  if(playAreaPlaceholder){
-  playAreaPlaceholder.style.backgroundImage=bgTemp;}
   return (
     <div className="App">
-      <header className="App-header">
-        <Link to={'/'}>
-          Return to start.</Link>
+      <header className="Logo" onClick={() => {navigate(`/`);}}>
+        Placeholder for logo. Users will be able to click here to return to the entry page.
       </header>
-
-      <div className = 'play-container'>
-
-        Look below.
-      <div onClick={() => navigate(`/Start`)}>
-        Click here to navigate to the next part of the site.
+        <Routes>
+          <Route path="/*" element={<StartPage />}/>
+          <Route path="/Main/:UserVal" element={<MainPage params={params} />} />
+          <Route path="/Main/:UserVal/Stats" element={<StatPage params={params} />} />
+          <Route path="/Main/:UserVal/Train" element={<TrainPage params={params} />} />
+        </Routes>
       </div>
-      </div>
-
-      <script type='text/javascript'>
-      console.log("should have run");
-
-          
-      </script>
-      <Routes>
-        <Route path="/*" />
-
-        <Route path="/Start" element={<StartPage />} />
-        <Route path="/Main/:UserVal" element={<MainPage params={params} />} />
-        <Route path="/Main/:UserVal/Stats" element={<StatPage params={params} />} />
-        <Route path="/Main/:UserVal/Train" element={<TrainPage params={params} />} />
-      </Routes>
-
-
-
-    </div>
   );
 }
 

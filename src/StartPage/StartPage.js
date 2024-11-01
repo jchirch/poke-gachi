@@ -11,9 +11,10 @@ let UserVal = "userval";
   return (
     <div className="StartPage">
       <header className="Start-Header">
-        <p onClick={()=>navigate(`/Main/${UserVal}`)}>
-          Successfully navigated to start page. Click here to go further.
-        </p>
+        <Link to={`/Main/${UserVal}`}>
+          Current element is the start page.<br/>
+          Click here to advance to the game!
+        </Link>
       </header>
     </div>
   );

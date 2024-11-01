@@ -25,24 +25,27 @@ function MainPage() {
 
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
-  if(playAreaPlaceholder){
-  playAreaPlaceholder.style.backgroundImage=bgTemp;}  return (
+  if (playAreaPlaceholder) {
+    playAreaPlaceholder.style.backgroundImage = bgTemp;
+  } return (
     <div className="App">
       <header className="App-header">
-      
-          We'll be putting the main page here. Further routing will act similarly. 
-          <Link to={`/Main/${params}/Stats`}>
+
+        We'll be putting the main page here. Further routing will act similarly.
+        <br />
+        <Link to={`/Main/${params}/Stats`}>
           For example, click here to navigate to the stats page.
-          </Link>
-          <Link to={`/Main/${params}/Train`}>Or click here to navigate to the training page.</Link>
+        </Link>
+        <br />
+        <Link to={`/Main/${params}/Train`}>Or click here to navigate to the training page.</Link>
       </header>
 
-      <div className = 'play-container'>
-      <section className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
-      </section>
+      <div className='play-container'>
+        <section className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
+        </section>
       </div>
 
- 
+
 
     </div>
   );
