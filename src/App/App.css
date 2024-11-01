@@ -1,40 +1,128 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #1e3136;
   min-height: 100vmin;
-}
-
-.App-logo {
-  height: 5vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  max-height: 100vmin;
+  color: white;
+  a:link {
+    color: rgb(2, 204, 2);
+    background-color: transparent;
+    text-decoration: none;
   }
+  a:visited{
+    color: rgb(144, 133, 10);
+    background-color: transparent;
+    text-decoration: none;
+
+  }
+  
 }
+
+
+
 
 .App-header {
-  background-color: #282c34;
-  max-height: 10vmin;
+
   display: flex;
+  background-repeat: no-repeat;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+
+.play-container .play-area-1 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Beach_BDSP.png');
+}
+
+.play-container .play-area-2 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Cave_BDSP.png');
+}
+
+.play-container .play-area-3 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Checks_BDSP.png');
+}
+
+.play-container .play-area-4 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_City_BDSP.png');
+}
+
+.play-container .play-area-5 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Crag_BDSP.png');
+}
+
+.play-container .play-area-6 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Desert_BDSP.png');
+}
+
+.play-container .play-area-7 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Forest_BDSP.png');
+}
+
+.play-container .play-area-8 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_River_BDSP.png');
+}
+
+.play-container .play-area-9 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Savanna_BDSP.png');
+}
+
+.play-container .play-area-10 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Seafloor_BDSP.png');
+}
+
+.play-container .play-area-11 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Sky_BDSP.png');
+}
+
+.play-container .play-area-12 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Snow_BDSP.png');
+}
+
+.play-container .play-area-0 {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 50vmin;
+  background-image: url('../Utils/Images/Box_Volcano_BDSP.png');
 }
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
