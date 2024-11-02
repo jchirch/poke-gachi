@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
   background-size: contain;
 
   background-image: url('../Utils/Images/Box_Beach_BDSP.png');
@@ -17,7 +16,6 @@
   background-repeat: no-repeat;
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
   background-size: contain;
 
   background-image: url('../Utils/Images/Box_Cave_BDSP.png');
@@ -29,7 +27,6 @@
   background-size: contain;
 
   min-height: 75vmin;
-  min-width: 75vmin;
 
   background-image: url('../Utils/Images/Box_Checks_BDSP.png');
 }
@@ -40,7 +37,6 @@
 
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
 
   background-image: url('../Utils/Images/Box_City_BDSP.png');
 }
@@ -52,7 +48,7 @@
   background-position: center;
 
   min-height: 75vmin;
-  min-width: 75vmin;
+  /* min-width: 75vmin; */
   background-image: url('../Utils/Images/Box_Crag_BDSP.png');
 }
 
@@ -62,7 +58,7 @@
 
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
+  /* min-width: 75vmin; */
   background-image: url('../Utils/Images/Box_Desert_BDSP.png');
 }
 
@@ -72,7 +68,7 @@
   background-size: contain;
 
   min-height: 75vmin;
-  min-width: 75vmin;
+  /* min-width: 75vmin; */
 
   background-image: url('../Utils/Images/Box_Forest_BDSP.png');
 }
@@ -83,7 +79,7 @@
 
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
+  /* min-width: 75vmin; */
 
   background-image: url('../Utils/Images/Box_River_BDSP.png');
 }
@@ -117,7 +113,6 @@
   background-position: center;
 
   min-height: 75vmin;
-  min-width: 75vmin;
   background-image: url('../Utils/Images/Box_Sky_BDSP.png');
 }
 
@@ -126,7 +121,6 @@
   background-size: contain;
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
   background-image: url('../Utils/Images/Box_Snow_BDSP.png');
 }
 
@@ -135,23 +129,28 @@
   background-size: contain;
   background-position: center;
   min-height: 75vmin;
-  min-width: 75vmin;
 
   background-image: url('../Utils/Images/Box_Volcano_BDSP.png');
 }
 .play-container{
   display:relative;
-  align-self: center;
+  /* align-self: center; */
   flex-direction: column;
   min-height: 75vmin;
   min-width: 75vmin;
+  /* width:100%; */
+  max-width:1080px;
+
+  height:100%;
 }
 .help-button{
-  position: absolute;
-  top:50px;
-  left: 50px;
-  width:50px;
-  height:50px;
+  position: relative;
+  top:15vmin; 
+  left: 25vmin;
+  /* width:50px; */
+  /* min-height: 50px; */
+  /* height:50px; */
+  /* max-height:1015px; */
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center; 
