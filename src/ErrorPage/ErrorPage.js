@@ -1,13 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import './ErrorPage.css';
+import { useState, useEffect } from "react";
+import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 
-function App() {
+function ErrorPage() {
+console.log(useParams());
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          You shouldn't see this in the final version! 
         </p>
         <a
           className="App-link"
@@ -22,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default ErrorPage;
