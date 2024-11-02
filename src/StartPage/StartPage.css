@@ -1,6 +1,6 @@
 .StartPage {
   text-align: center;
-  background-color: darkslategray;
+  background-color: 1e3136;
 }
 
 
@@ -8,11 +8,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

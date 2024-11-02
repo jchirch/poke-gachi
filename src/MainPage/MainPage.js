@@ -41,8 +41,11 @@ function MainPage() {
       </header>
 
       <div className='play-container'>
-        <section className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
-        </section>
+        <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
+          <button type="button" className='help-button'>
+            Help
+          </button>
+        </div>
       </div>
 
 
