@@ -1,14 +1,12 @@
 @font-face {
   font-family: 'PkmnFont';
-  src: url(../Utils/pokemon-ds-font.ttf);
+  src: url(../Utilities/pokemon-ds-font.ttf);
 }
 .App {
   font-family: 'PkmnFont';
   text-align: center;
   background-color: #1e3136;
   min-height: 100vh;
-  max-height: 100vh;
-  /* min-width: 100vmax; */
   max-width: 100vw;
   color: white;  align-items: center;
   align-self: center;

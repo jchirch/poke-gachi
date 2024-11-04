@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'PkmnFont';
-  src: url(../Utils/pokemon-ds-font.ttf);
+  src: url(../Utilities/pokemon-ds-font.ttf);
 }
 
 .App {
@@ -19,7 +19,7 @@
   align-content: space-between;
 
 
-  background-image: url('../Utils/Images/Box_Beach_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Beach_BDSP.png');
 }
 
 .play-container .play-area-2 {
@@ -32,7 +32,7 @@
 
   align-content: space-between;
 
-  background-image: url('../Utils/Images/Box_Cave_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Cave_BDSP.png');
 }
 
 .play-container .play-area-3 {
@@ -46,7 +46,7 @@
 
   min-height: 75vmin;
 
-  background-image: url('../Utils/Images/Box_Checks_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Checks_BDSP.png');
 }
 
 .play-container .play-area-4 {
@@ -60,7 +60,7 @@
 
   align-content: space-between;
 
-  background-image: url('../Utils/Images/Box_City_BDSP.png');
+  background-image: url('../Utilities/Images/Box_City_BDSP.png');
 }
 
 .play-container .play-area-5 {
@@ -75,7 +75,7 @@
 
   min-height: 75vmin;
   /* min-width: 75vmin; */
-  background-image: url('../Utils/Images/Box_Crag_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Crag_BDSP.png');
 }
 
 .play-container .play-area-6 {
@@ -89,7 +89,7 @@
   background-position: center;
   min-height: 75vmin;
   /* min-width: 75vmin; */
-  background-image: url('../Utils/Images/Box_Desert_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Desert_BDSP.png');
 }
 
 .play-container .play-area-7 {
@@ -104,7 +104,7 @@
   min-height: 75vmin;
   /* min-width: 75vmin; */
 
-  background-image: url('../Utils/Images/Box_Forest_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Forest_BDSP.png');
 }
 
 .play-container .play-area-8 {
@@ -119,7 +119,7 @@
   /* min-width: 75vmin; */
   align-content: space-between;
 
-  background-image: url('../Utils/Images/Box_River_BDSP.png');
+  background-image: url('../Utilities/Images/Box_River_BDSP.png');
 }
 
 .play-container .play-area-9 {
@@ -134,7 +134,7 @@
   min-height: 75vmin;
   min-width: 75vmin;
 
-  background-image: url('../Utils/Images/Box_Savanna_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Savanna_BDSP.png');
 }
 
 .play-container .play-area-10 {
@@ -149,7 +149,7 @@
 
   align-content: space-between;
 
-  background-image: url('../Utils/Images/Box_Seafloor_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Seafloor_BDSP.png');
 }
 
 .play-container .play-area-11 {
@@ -161,7 +161,7 @@
   background-position: center;
   align-content: space-between;
   min-height: 75vmin;
-  background-image: url('../Utils/Images/Box_Sky_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Sky_BDSP.png');
 }
 
 .play-container .play-area-12 {
@@ -174,7 +174,7 @@
 
 
   min-height: 75vmin;
-  background-image: url('../Utils/Images/Box_Snow_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Snow_BDSP.png');
 }
 
 .play-container .play-area-0 {
@@ -186,7 +186,7 @@
   flex-direction: row;
 
 
-  background-image: url('../Utils/Images/Box_Volcano_BDSP.png');
+  background-image: url('../Utilities/Images/Box_Volcano_BDSP.png');
 }
 
 .play-container {
