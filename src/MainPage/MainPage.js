@@ -1,6 +1,12 @@
 import './MainPage.css';
 import { useState, useEffect } from "react";
 import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import PartyMenu from '../PartyMenu/PartyMenu';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import beachImg from '../Utils/Images/Box_Beach_BDSP.png'
 import caveImg from '../Utils/Images/Box_Cave_BDSP.png'
 import checkImg from '../Utils/Images/Box_Checks_BDSP.png'
@@ -21,9 +27,22 @@ function MainPage() {
   const navigate = useNavigate();
   const params = useParams();
   const playAreaPlaceholder = document.getElementById('.play-area');
-  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
 
+  const [showParty, setShowParty] = useState(false);
+
+  const handlePartyVisible = () => setShowParty(!showParty);
+  const [partyPopUpMenu, setPartyPopUpMenu] = useState();
+
+  const [showHelp, setShowHelp] = useState(false);
+
+  const handleHelpVisible = () => setShowHelp(!showHelp);
+
+
+  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
+
+
+
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
@@ -42,13 +61,68 @@ function MainPage() {
 
       <div className='play-container'>
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
-          <button type="button" className='help-button'>
-            Help
-          </button>
+          <div className='button-containers-1'>
+            <button type="button" className='help-button' onClick={handleHelpVisible}>
+              ?
+              <Modal style={{ display: 'block', position: 'center' }}
+
+                show={showHelp} onHide={handleHelpVisible}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Help</Modal.Title>
+
+                </Modal.Header>
+                <Modal.Body>
+                  Help page will go here
+                  {/* <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} /> */}
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleHelpVisible}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </button>
+          </div>
+          <div className='button-containers-2'>
+
+            <button type="button" className='train-button'>
+              Train
+            </button>
+          </div>
+          <div className='button-containers-3'>
+
+            <button type="button" className='stats-button'>
+              Stats
+            </button>
+          </div>
+          <div className='button-containers-4'>
+            <button type="button" className='feed-button'>
+              Feed
+            </button>
+          </div>
+          <div className='button-containers-5'>
+            <button type="button" className='party-button' onClick={handlePartyVisible}>
+              Party
+              <Modal style={{ display: 'block', position: 'center' }}
+
+                show={showParty} onHide={handlePartyVisible}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Party</Modal.Title>
+
+                </Modal.Header>
+                <Modal.Body>
+                  <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} />
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handlePartyVisible}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </button>
+          </div>
         </div>
       </div>
-
-
 
     </div>
   );

@@ -56,6 +56,7 @@ function App() {
     <div className="App">
       <img className="Logo" onClick={() => {navigate(`/`);}} src={'https://fontmeme.com/permalink/241101/6f970496b8e7aa40eddeec38e543fbb0.png'}>
       </img>
+      
         <Routes>
         <Route path="/*" element={<ErrorPage />}/>
         <Route path="/" element={<StartPage />}/>
@@ -64,6 +65,7 @@ function App() {
           <Route path="/Main/:UserVal/Train" element={<TrainPage params={params} />} />
         </Routes>
       </div>
+
   );
 }
 

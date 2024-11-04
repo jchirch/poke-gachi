@@ -1,8 +1,6 @@
-@font-face {
-  font-family: 'PkmnFont';
-  src: url(../Utils/pokemon-ds-font.ttf);
-}
-.App {
+
+
+.party-menu {
   font-family: 'PkmnFont';
   text-align: center;
   background-color: #1e3136;
@@ -29,16 +27,6 @@
   }
 
 }
-.Logo {
-  display: flex;
-  background-repeat: no-repeat;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
- 
-  cursor: pointer;
-}
-
-
 .App-link {
   color: #61dafb;
 }
