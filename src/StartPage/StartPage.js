@@ -10,12 +10,14 @@ let UserVal = "userval";
 
   return (
     <div className="StartPage">
-      <header className="Start-Header">
-        <Link to={`/Main/${UserVal}`}>
+      <header className="start-header">
+        
+        <Link className="start-words" to={`/Main/${UserVal}`}>
           Current element is the start page.<br/>
           Click here to advance to the game!
         </Link>
       </header>
+
     </div>
   );
 }

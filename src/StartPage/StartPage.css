@@ -1,6 +1,17 @@
 .StartPage {
   text-align: center;
-  background-color: 1e3136;
+
+}
+.start-header{
+  background-image: url('../Utilities/Images/Title_Screen_Background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+ min-height: 75vmin;
+  min-width: 75vmin;
+
+}
+.start-words{
+  
 }
 
 
