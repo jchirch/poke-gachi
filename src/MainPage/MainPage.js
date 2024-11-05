@@ -6,7 +6,6 @@ import Modal from 'react-bootstrap/Modal';
 import PartyMenu from '../PartyMenu/PartyMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
 import caveImg from '../Utilities/Images/Box_Cave_BDSP.png'
 import checkImg from '../Utilities/Images/Box_Checks_BDSP.png'
@@ -40,10 +39,29 @@ function MainPage() {
 
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
-
-
-
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
+
+  function fetchData() {
+
+    fetch("http://127.0.0.1:3000/api/v1/trainers/1/pokemons/2") 
+    .then(response => { 
+      console.log("Received response:", response); 
+      return response.json()})
+      .then(data => { 
+        console.log("Parsed data:", data); 
+        return data }) 
+      .catch(error => { 
+        console.error('Fetch operation failed:', error);
+        });
+
+
+  }
+
+  useEffect(() => {
+    fetchData();
+
+  }, [])
+
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
   } return (
