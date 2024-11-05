@@ -239,7 +239,7 @@
   font-family: 'PkmnFont';
   position: relative;
   top: 55vmin;
-  left: 25vmin;
+  left: 30vmin;
   /* width:50px; */
   /* min-height: 50px; */
   /* height:50px; */
@@ -273,7 +273,7 @@
   font-family: 'PkmnFont';
   position: relative;
   top: 55vmin;
-  left: 30vmin;
+  left: 40vmin;
   /* width:50px; */
   /* min-height: 50px; */
   /* height:50px; */
@@ -285,6 +285,14 @@
   border-radius: 50px;
   border: 5px, ridge rgb(186, 186, 186);
 }
+.modal {
+  background-image: url('../Utilities/Images/Title_Screen_Background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
 
 .App-link {
   color: #61dafb;

@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import PartyMenu from '../PartyMenu/PartyMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+import modalBackground from '../Utilities/Images/Title_Screen_Background.png'
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
 import caveImg from '../Utilities/Images/Box_Cave_BDSP.png'
 import checkImg from '../Utilities/Images/Box_Checks_BDSP.png'
@@ -64,7 +64,7 @@ function MainPage() {
           <div className='button-containers-1'>
             <button type="button" className='help-button' onClick={handleHelpVisible}>
               ?
-              <Modal style={{ display: 'block', position: 'center' }}
+              <Modal className='modal-xl' style={{ display: 'block', position: 'center' }}
 
                 show={showHelp} onHide={handleHelpVisible}>
                 <Modal.Header closeButton>
@@ -72,7 +72,17 @@ function MainPage() {
 
                 </Modal.Header>
                 <Modal.Body>
-                  Help page will go here
+Hello, Trainer, and welcome to the world of Pokemon!
+In this 'Pokegachi', Pokemon can be fed, trained, played with, and with a little love and care, even evolve! 
+<br/>
+Each of your Pokemon has a certain amount of energy. <br/>
+By using up their energy, you can train your Pokemon, helping them to earn experience.<br/>
+Be careful not to overdo it and leave them entirely exhausted, though, or your Pokemon might become grumpy, reducing how much experience they'll earn!<br/>
+When your Pokemon gains enough experience, they'll level up, increasing their maximum energy!<br/>
+You can increase your Pokemon's <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
+Last, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them earn more experience!<br/>
+<br/>
+ Take care, dear trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!
                   {/* <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} /> */}
                 </Modal.Body>
                 <Modal.Footer>
