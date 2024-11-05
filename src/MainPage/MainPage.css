@@ -199,6 +199,8 @@
   max-width: 1080px;
 
   height: 100%;
+
+  
 }
 
 .help-button {
@@ -288,4 +290,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.pokemon-sprite {
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200x;
 }
