@@ -117,6 +117,24 @@ function MainPage() {
       </header>
 
       <div className='play-container'>
+
+        
+      {pokemonData && pokemonData.data ? (
+          <div className="pokemon-details">
+            <h2>{pokemonData.data.attributes.name}</h2>
+            <p>Description: {pokemonData.data.attributes.description}</p>
+            <img src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
+            <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio>
+            <p>Level: {pokemonData.data.attributes.level}</p>
+            <p>XP: {pokemonData.data.attributes.xp}</p>
+            <p>Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
+            <p>Happiness: {pokemonData.data.attributes.happiness}</p>
+            <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p>
+          </div>
+        ) : (
+          <p>Loading Pokémon data...</p>
+        )}
+        
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
           {pokemonData && pokemonData.data ? (
