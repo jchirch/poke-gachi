@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import PartyMenu from '../PartyMenu/PartyMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Happiness from '../HUD/Happiness';
 
 
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
@@ -37,10 +38,8 @@ function MainPage() {
 
   const handleHelpVisible = () => setShowHelp(!showHelp);
 
-
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
-
 
 
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
