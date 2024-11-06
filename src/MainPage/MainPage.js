@@ -6,6 +6,8 @@ import Modal from 'react-bootstrap/Modal';
 import PartyMenu from '../PartyMenu/PartyMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Happiness from '../HUD/Happiness';
+import Experience from '../HUD/Experience';
+import Energy from '../HUD/Energy';
 
 
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
@@ -89,7 +91,10 @@ function MainPage() {
             <section className='HUD'>
               <div className="ExperienceBar">
                 <Happiness
-
+                />
+                <Energy 
+                />
+                <Experience 
                 />
                 XP: {pokemonData.data.attributes.xp}
               </div>
