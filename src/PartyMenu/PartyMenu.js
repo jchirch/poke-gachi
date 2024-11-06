@@ -1,25 +1,50 @@
 import './PartyMenu.css';
 import { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 
-function PartyMenu({pokemon1, pokemon2, pokemon3}) {
-  if(pokemon1){
-console.log(pokemon1);
+function PartyMenu() {
+  const [pokemonPartyData, setPokemonPartyData] = useState(null);
+
+  function fetchData() {
+    fetch("https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons")
+      .then(response => {
+        console.log("Received response:", response);
+        return response.json();
+      })
+      .then(data => {
+        console.log("Parsed data:", data);
+        setPokemonPartyData(data); 
+      })
+      .catch(error => {
+        console.error('Fetch operation failed:', error);
+      });
   }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="party-menu">
       <header className="party-header">
-       Your Team!
-       </header>
-        
-        <ul className='list-of-pokemon'>
-          <li>
-            {/* Display stats of the pokemon here, including name, sprite, etc.  */}
-          </li>
-          <li></li>
-          <li></li>
-          
-        </ul>
+        Your Party!
+      </header>
+
+      {pokemonPartyData ? (
+        <div className="pokemon-party-list">
+          <ul>
+            {pokemonPartyData.data.map((pokemon) => (
+              <li key={pokemon.id} className='pokemon-party-member'>
+                <a href="#">
+                  <img src={pokemon.attributes.small_img} alt={pokemon.attributes.name} />
+                  {pokemon.attributes.name}, Level: {pokemon.attributes.level}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
+      )}
     </div>
   );
 }
