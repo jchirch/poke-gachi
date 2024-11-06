@@ -52,7 +52,7 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +4)
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +4, pokemonData.data.attributes.max_energy)
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
