@@ -1,17 +1,34 @@
 .StartPage {
   text-align: center;
-
+  display:flex;
+  flex-direction: column;
+  /* background-image: url('../Utilities/Images/Title_Screen_Background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 75vmin;
+  min-width: 75vmin; */
+  
 }
 .start-header{
   background-image: url('../Utilities/Images/Title_Screen_Background.png');
   background-size: contain;
   background-repeat: no-repeat;
- min-height: 75vmin;
-  min-width: 75vmin;
+  min-height: 75vmin;
+  min-width: 90vmin;
+  display:flex;
+  justify-content: center;
+  
 
 }
 .start-words{
-  
+  text-align: center;
+  color:black;
+  border: 5px solid rgb(169, 17, 17);
+  background-color: rgba(124, 123, 123, 0.309);
+      display: inline-flex;
+align-self:center;
+  background-repeat: no-repeat;
+
 }
 
 
