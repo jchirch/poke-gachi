@@ -6,6 +6,11 @@ import Modal from 'react-bootstrap/Modal';
 import PartyMenu from '../PartyMenu/PartyMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Happiness from '../HUD/Happiness';
+import Experience from '../HUD/Experience';
+import Energy from '../HUD/Energy';
+
+
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
 import caveImg from '../Utilities/Images/Box_Cave_BDSP.png'
 import checkImg from '../Utilities/Images/Box_Checks_BDSP.png'
@@ -32,8 +37,44 @@ function MainPage() {
   const [showHelp, setShowHelp] = useState(false);
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
+
   const [playAnim, setPlayAnim] = useState(0);
 
+  const handleTrain = () => {
+    // const trainUpdate = {
+    //   xp: +100,
+    //   energy: -105,
+    // };
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
+  
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        xp: newXp,
+        energy: newEnergy
+      })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Update success:", data);
+        setPokemonData(data);
+      })
+      .catch(error => {
+        console.error("Update Failed:", error);
+      });
+  };
+
+  
+  
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
@@ -54,7 +95,7 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +4)
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +4, pokemonData.data.attributes.max_energy)
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
@@ -115,44 +156,54 @@ function MainPage() {
 =
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } return (
+  } 
+  return (
     <div className="App">
       <header className="App-header">
-
-        We'll be putting the main page here. Further routing will act similarly.
-        <br />
-        {/* <Link to={`/Main/${params}/Stats`}> */}
-          {/* For example, click here to navigate to the stats page. */}
-        {/* </Link> */}
-        <br />
-        {/* <Link to={`/Main/${params}/Train`}>Or click here to navigate to the training page.</Link> */}
+        Gotta Take Care of 'em All!
       </header>
 
       <div className='play-container'>
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
           {pokemonData && pokemonData.data ? (
+            
+          <div className="pokemon-details">
+            <section className='HUD'>
+              <div className="HappinessBar">
+                <Happiness
+                  current ={pokemonData.data.attributes.happiness}
+                  max={100}
+                />
+              </div>
+              <div className="EnergyBar">
+                <Energy 
+                  current ={pokemonData.data.attributes.energy}
+                  max={pokemonData.data.attributes.max_energy}
+                />
+              </div>
+              <div className="ExperienceBar">
+                <Experience 
+                  current ={pokemonData.data.attributes.xp}
+                  max={100}
+                />
+              </div>
+            </section>
 
-            <div className="pokemon-details">
-              <div className='pokemon-bars'>
-                <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
-                <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
-                <p className="pokemon-happiness-bar">Happiness: {pokemonData.data.attributes.happiness}</p>
-              </div>
-              <div className='pokemon-image-name-level'>
-                <img className='pokemon-sprite' src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={()=> playWithCurrentPokemon()}  />
-                <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
-              </div>
-              {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-              {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
-              {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
+            <div className='pokemon-image-name-level'>
+              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
+              <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
             </div>
+            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
+            {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
+            {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
+          </div>
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
           )}
 
           <div className="button-row">
-            <button type="button" className='train-button'>
+            <button type="button" className='train-button' onClick={() => handleTrain()}>
               Train
             </button>
             <button type="button" className='stats-button'>
@@ -161,7 +212,7 @@ function MainPage() {
             <button type="button" className='feed-button' onClick={updateEnergy}>
               Feed
             </button>
-            <button type="button" className='party-button' onClick={handlePartyVisible}>
+            <button type="button" className='party-button' onClick={() => handlePartyVisible}>
               Party
               <Modal style={{ display: 'block', position: 'center' }}
                 show={showParty} onHide={handlePartyVisible}>
