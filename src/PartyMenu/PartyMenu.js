@@ -23,6 +23,10 @@ function PartyMenu() {
     fetchData();
   }, []);
 
+  function test() {
+    return alert("test")
+  }
+
   return (
     <div className="party-menu">
       <header className="party-header">
@@ -34,10 +38,10 @@ function PartyMenu() {
           <ul>
             {pokemonPartyData.data.map((pokemon) => (
               <li key={pokemon.id} className='pokemon-party-member'>
-                <a href="#">
+                <button href="#" onClick={test}>
                   <img src={pokemon.attributes.small_img} alt={pokemon.attributes.name} />
                   {pokemon.attributes.name}, Level: {pokemon.attributes.level}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
