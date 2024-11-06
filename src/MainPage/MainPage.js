@@ -29,29 +29,23 @@ import volcanoImg from '../Utilities/Images/Box_Volcano_BDSP.png'
 
 function MainPage() {
   const navigate = useNavigate();
-  const params = useParams();
+  const { pokeId } = useParams();
   const playAreaPlaceholder = document.getElementById('.play-area');
-
   const [showParty, setShowParty] = useState(false);
-
   const handlePartyVisible = () => setShowParty(!showParty);
   const [partyPopUpMenu, setPartyPopUpMenu] = useState();
-
   const [showHelp, setShowHelp] = useState(false);
-
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
 
-
-
-
+  
+  
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
 
   function fetchData() {
-
-    fetch("https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2")
+    fetch('https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2')
       .then(response => {
         console.log("Received response:", response);
         return response.json()
@@ -64,10 +58,27 @@ function MainPage() {
         console.error('Fetch operation failed:', error);
       });
   }
+  
+  const updateEnergy = () => {
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +4)
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ energy: newEnergy })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Energy updated:", data);
+      setPokemonData(data)
+    })
+    .catch(error => console.error("Error updating energy:", error));
+  };
+
 
   useEffect(() => {
     fetchData();
-
   }, [])
 
   if (playAreaPlaceholder) {
@@ -125,7 +136,7 @@ function MainPage() {
             <button type="button" className='stats-button'>
               Stats
             </button>
-            <button type="button" className='feed-button'>
+            <button type="button" className='feed-button' onClick={updateEnergy}>
               Feed
             </button>
             <button type="button" className='party-button' onClick={handlePartyVisible}>
