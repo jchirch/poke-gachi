@@ -36,8 +36,6 @@ function MainPage() {
 
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
-  const [playAnim, setPlayAnim] = useState(0);
-
 
 
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
@@ -61,45 +59,9 @@ function MainPage() {
   }
 
   useEffect(() => {
-    console.log("rerender")
     fetchData();
 
-  },[])
-
-  // function triggerHops(){
-  //   setPlayAnim(1);
-  //   console.log(playAnim);
-  // }
-  function playWithCurrentPokemon() {
-  
-    console.log(playAnim)
-    setPlayAnim(1);
-
-    console.log(playAnim)
-
-    let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
-    pkmnCry.play();
-    let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
-    fetch(
-      "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2",
-      {
-        method: "PATCH",
-        body: JSON.stringify({ happiness: newHappiness }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("response: ", data);
-        setPokemonData(data)
-      })
-      .catch((error) => console.log("error:", error));
-      console.log(playAnim)
-
-  }
-  
+  }, [])
 
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
@@ -122,33 +84,13 @@ function MainPage() {
           {pokemonData && pokemonData.data ? (
             
           <div className="pokemon-details">
-            <p className="pokemon-level">Level: {pokemonData.data.attributes.level}</p>
-            <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
-            <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
-            <p className="pokemon-happiness-bar">Happiness: {pokemonData.data.attributes.happiness}</p>
-            <h2 className="pokemon-name">{pokemonData.data.attributes.name}</h2>
-            <img className="pokemon-sprite"src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
-
-            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-            {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
-            {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
-          </div>
-        ) : (
-          <p>Loading Pokémon data...</p>
-        )}
-        
-        <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
-
-          {pokemonData && pokemonData.data ? (
-
-            <div className="pokemon-details">
               <div className='pokemon-bars'>
                 <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
                 <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
                 <p className="pokemon-happiness-bar">Happiness: {pokemonData.data.attributes.happiness}</p>
               </div>
               <div className='pokemon-image-name-level'>
-                <img className='pokemon-sprite' src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={()=> playWithCurrentPokemon()}  />
+                <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
                 <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
               </div>
               {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
@@ -186,24 +128,24 @@ function MainPage() {
                 </Modal.Footer>
               </Modal>
             </button>
-            <img className='help-button' src={helpButton} onClick={handleHelpVisible}>
-
-            </img>
-            <Modal style={{ display: 'block', position: 'center' }}
-              show={showHelp} onHide={handleHelpVisible}>
-              <Modal.Header closeButton>
-                <Modal.Title>Help</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                Help page will go here
-                {/* <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} /> */}
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleHelpVisible}>
-                  Close
-                </Button>
-              </Modal.Footer>
-            </Modal>
+            <button type="button" className='help-button' onClick={handleHelpVisible}>
+              ?
+              <Modal style={{ display: 'block', position: 'center' }}
+                show={showHelp} onHide={handleHelpVisible}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Help</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Help page will go here
+                  {/* <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} /> */}
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleHelpVisible}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </button>
           </div>
         </div>
       </div>

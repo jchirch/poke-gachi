@@ -234,10 +234,8 @@
 .party-button {
   font-family: 'PkmnFont';
   outline: 5px ridge;
-  cursor:pointer;
   border-radius: 50px;
   /* padding: 1rem 2rem; */
-
   border: 5px ridge rgb(186, 186, 186);
 }
 
@@ -318,21 +316,6 @@ justify-content: flex-start;
   width: 150px;
   height: 150px;
   margin: 10px 0;
-}
-.pokemon-sprite:hover{
-  animation-duration: .3s;
-  animation-name: hopping;
-  animation-iteration-count: 4;
-  animation-direction: alternate;
-}
-@keyframes hopping {
-  from {
-    translate:0 0vw;
-    scale:100% ;
-  } to {
-    translate: 0 -5vw;
-    scale: 100% 1;
-  }
 }
 
 
