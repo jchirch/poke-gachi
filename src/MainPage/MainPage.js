@@ -119,7 +119,6 @@ function MainPage() {
   }, [])
 
 
-  },[])
 
   // function triggerHops(){
   //   setPlayAnim(1);
@@ -156,7 +155,7 @@ function MainPage() {
   }
 
 
-=
+
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
   } 
