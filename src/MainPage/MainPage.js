@@ -86,19 +86,24 @@ function MainPage() {
           {pokemonData && pokemonData.data ? (
             
           <div className="pokemon-details">
-              <div className='pokemon-bars'>
-                <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
-                <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
-                <p className="pokemon-happiness-bar">Happiness: {pokemonData.data.attributes.happiness}</p>
+            <section className='HUD'>
+              <div className="ExperienceBar">
+                <Happiness
+
+                />
+                XP: {pokemonData.data.attributes.xp}
               </div>
-              <div className='pokemon-image-name-level'>
-                <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
-                <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
-              </div>
-              {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-              {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
-              {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
+              <div className="EnergyBar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</div>
+              <div className="HappinessBar">Happiness: {pokemonData.data.attributes.happiness}</div>
+            </section>
+            <div className='pokemon-image-name-level'>
+              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
+              <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
             </div>
+            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
+            {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
+            {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
+          </div>
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
           )}
