@@ -79,8 +79,10 @@ function MainPage() {
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
 
-  function fetchData() {
-    fetch('https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2')
+  function fetchData(identifier) {
+
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
+
       .then(response => {
         console.log("Received response:", response);
         return response.json()
@@ -113,8 +115,9 @@ function MainPage() {
 
 
   useEffect(() => {
-    console.log("rerender")
-    fetchData();
+    fetchData(2);
+  }, [])
+
 
   },[])
 
@@ -220,7 +223,7 @@ function MainPage() {
                   <Modal.Title>Party</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} />
+                  <PartyMenu fetchSpecificPokemon={fetchData}/>
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handlePartyVisible}>
