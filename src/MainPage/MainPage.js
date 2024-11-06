@@ -44,17 +44,18 @@ function MainPage() {
 
   function fetchData() {
 
-    fetch("http://127.0.0.1:3000/api/v1/trainers/1/pokemons/2") 
-    .then(response => { 
-      console.log("Received response:", response); 
-      return response.json()})
-      .then(data => { 
-        console.log("Parsed data:", data); 
-        setPokemonData(data); 
+    fetch("http://127.0.0.1:3000/api/v1/trainers/1/pokemons/2")
+      .then(response => {
+        console.log("Received response:", response);
+        return response.json()
       })
-      .catch(error => { 
+      .then(data => {
+        console.log("Parsed data:", data);
+        setPokemonData(data);
+      })
+      .catch(error => {
         console.error('Fetch operation failed:', error);
-        });
+      });
   }
 
   useEffect(() => {
@@ -78,69 +79,38 @@ function MainPage() {
       </header>
 
       <div className='play-container'>
-
-        
- 
-        
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
-        {pokemonData && pokemonData.data ? (
+          {pokemonData && pokemonData.data ? (
+            
           <div className="pokemon-details">
-            <p className="pokemon-level">Level: {pokemonData.data.attributes.level}</p>
-            <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
-            <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
-            <p className="pokemon-happiness-bar">Happiness: {pokemonData.data.attributes.happiness}</p>
-            <h2 className="pokemon-name">{pokemonData.data.attributes.name}</h2>
-            <img className="pokemon-sprite"src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
+              <div className='pokemon-bars'>
+                <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
+                <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
+                <p className="pokemon-happiness-bar">Happiness: {pokemonData.data.attributes.happiness}</p>
+              </div>
+              <div className='pokemon-image-name-level'>
+                <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
+                <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
+              </div>
+              {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
+              {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
+              {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
+            </div>
+          ) : (
+            <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
+          )}
 
-            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-            {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
-            {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
-          </div>
-        ) : (
-          <p>Loading Pokémon data...</p>
-        )}
-
-          <div className='button-containers-1'>
-            <button type="button" className='help-button' onClick={handleHelpVisible}>
-              ?
-              <Modal style={{ display: 'block', position: 'center' }}
-
-                show={showHelp} onHide={handleHelpVisible}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Help</Modal.Title>
-
-                </Modal.Header>
-                <Modal.Body>
-                  Help page will go here
-                  {/* <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} /> */}
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleHelpVisible}>
-                    Close
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </button>
-          </div>
-          <div className='button-containers-2'>
-
+          <div className="button-row">
             <button type="button" className='train-button'>
               Train
             </button>
-          </div>
-          <div className='button-containers-3'>
-
             <button type="button" className='stats-button'>
               Stats
             </button>
-          </div>
-          <div className='button-containers-4'>
             <button type="button" className='feed-button'>
               Feed
             </button>
-          </div>
-          <div className='button-containers-5'>
             <button type="button" className='party-button' onClick={handlePartyVisible}>
               Party
               <Modal style={{ display: 'block', position: 'center' }}
@@ -158,10 +128,27 @@ function MainPage() {
                 </Modal.Footer>
               </Modal>
             </button>
+            <button type="button" className='help-button' onClick={handleHelpVisible}>
+              ?
+              <Modal style={{ display: 'block', position: 'center' }}
+                show={showHelp} onHide={handleHelpVisible}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Help</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Help page will go here
+                  {/* <PartyMenu pokemon1={"pokemon1"} pokemon2={"pokemon2"} pokemon3={"pokemon3"} /> */}
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleHelpVisible}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </button>
           </div>
         </div>
       </div>
-
     </div>
   );
 }
