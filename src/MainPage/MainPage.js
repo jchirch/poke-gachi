@@ -39,7 +39,6 @@ function MainPage() {
   const [playAnim, setPlayAnim] = useState(0);
 
 
-
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
@@ -101,6 +100,7 @@ function MainPage() {
   }
   
 
+=
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
   } return (

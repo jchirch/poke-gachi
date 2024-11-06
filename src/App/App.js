@@ -27,31 +27,7 @@ function App() {
   let params = "this";
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
 
-  function fetchData() {
-    // fetch()
-    //   .then((res) => {
-    //     if (!res.ok) {
-    //       const err = new Error(res.statusText);
-    //       err.statusCode = res.status;
-    //       throw err;
-    //     }
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //
-    //    do something with data     
-    //
-    //     console.log(data);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
-  }
-
-  useEffect(() => {
-    fetchData();
-
-  }, [])
+  
   return (
     <div className="App">
       <img className="Logo" onClick={() => {navigate(`/`);}} src={'https://fontmeme.com/permalink/241101/6f970496b8e7aa40eddeec38e543fbb0.png'}>
