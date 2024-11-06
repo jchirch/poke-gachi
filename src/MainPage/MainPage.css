@@ -233,32 +233,40 @@
 .feed-button,
 .party-button {
   font-family: 'PkmnFont';
-  outline: 5px ridge;
+  outline: 2px ridge;
   cursor:pointer;
-  border-radius: 50px;
+  border-radius: 5px;
   /* padding: 1rem 2rem; */
+  background-position: center;
+  background-size: cover;
 
-  border: 5px ridge rgb(186, 186, 186);
+  /* border: 5px ridge rgb(186, 186, 186); */
 }
 
 .help-button {
-  /* outline-color: rgb(0, 145, 255); */
+  outline: 0px;
 }
 
 .train-button {
-  outline-color: orange;
+  outline-color: red;
+  background-image: url('../Utilities/buttons/red_button.png');
 }
 
 .stats-button {
-  outline-color: rgb(255, 255, 255);
+  outline-color: rgb(60, 0, 255);
+  background-image: url('../Utilities/buttons/blue_button.png');
+
 }
 
 .feed-button {
   outline-color: rgb(61, 195, 13);
+  background-image: url('../Utilities/buttons/green_button.png');
+
 }
 
 .party-button {
-  outline-color: rgb(255, 0, 0);
+  outline-color: gray;
+  background-image: url('../Utilities/buttons/pokeball_button.png');
 }
 
 .App-link {
@@ -280,35 +288,48 @@
   text-align: center;
   background-color: transparent;
   padding: 20px;
-  max-width: 100%; 
-  max-height: 90%; 
-  min-height: auto;
+  /* max-width: 100%; 
+  max-height: 100%;  */
+  /* min-height: auto; */
+  min-width:90vmin;
+  min-height:90vmin;
   overflow-y: auto; 
 }
 
 .HUD {
-  padding: .25em;
-  border: solid, .2em, rgba(154, 1, 1, 0.862);
+  padding:1vmin;
+  border: solid, .5vmin, rgba(154, 1, 1, 0.862);
   background-color: #ffffffd1;
-  border-radius: .15em ;
-  filter: drop-shadow(2, 2, 5)
+  border-radius: .15em;
+  filter: drop-shadow(2, 2, 5);
+  left:40%;  
+  max-width:30vmin;
+  margin-left: 32.5%;
+  margin-top: 10vmin;
+
 }
 
 .pokemon-name-level {
   font-size: 2em;
   color: #3b4cca;
-  outline: 5px ridge;
-  border-radius: 15px;
+  outline: 1vmin ridge;
+  border-radius: 1vmin;
   /* padding: 2rem, 1rem; */
-  border: 5px ridge rgb(186, 186, 186);
+  border: .3vmin ridge rgb(186, 186, 186);
   background-color: rgba(255,255,255,0.7);
   /* max-width: 150px; */
+
+justify-self:center;  
+max-width:30vmin;
 }
 
 .pokemon-sprite {
-  width: 150px;
-  height: 150px;
-  margin: 10px 0;
+  /* width: 150px;
+  height: 150px; */
+  padding: 1vmin;
+  margin: 0vmin 0vmin;
+  min-height:20vmin;
+  margin-top:10%;
 }
 .pokemon-sprite:hover{
   animation-duration: .3s;

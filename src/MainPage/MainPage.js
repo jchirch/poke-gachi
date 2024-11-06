@@ -45,9 +45,9 @@ function MainPage() {
     //   xp: +100,
     //   energy: -105,
     // };
-    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
-    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
-  
+    let newEnergy = Math.max(pokemonData.data.attributes.energy - 15, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp + 10, 100)
+
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
@@ -73,8 +73,8 @@ function MainPage() {
       });
   };
 
-  
-  
+
+
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
@@ -95,9 +95,9 @@ function MainPage() {
         console.error('Fetch operation failed:', error);
       });
   }
-  
+
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +4, pokemonData.data.attributes.max_energy)
+    let newEnergy = Math.min(pokemonData.data.attributes.energy + 4, pokemonData.data.attributes.max_energy)
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
@@ -105,12 +105,12 @@ function MainPage() {
       },
       body: JSON.stringify({ energy: newEnergy })
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Energy updated:", data);
-      setPokemonData(data)
-    })
-    .catch(error => console.error("Error updating energy:", error));
+      .then(response => response.json())
+      .then(data => {
+        console.log("Energy updated:", data);
+        setPokemonData(data)
+      })
+      .catch(error => console.error("Error updating energy:", error));
   };
 
 
@@ -123,7 +123,7 @@ function MainPage() {
   //   console.log(playAnim);
   // }
   function playWithCurrentPokemon() {
-  
+
     console.log(playAnim)
     setPlayAnim(1);
 
@@ -148,14 +148,14 @@ function MainPage() {
         setPokemonData(data)
       })
       .catch((error) => console.log("error:", error));
-      console.log(playAnim)
+    console.log(playAnim)
   }
 
 
 
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } 
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -166,37 +166,37 @@ function MainPage() {
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
           {pokemonData && pokemonData.data ? (
-            
-          <div className="pokemon-details">
-            <section className='HUD'>
-              <div className="HappinessBar">
-                <Happiness
-                  current ={pokemonData.data.attributes.happiness}
-                  max={100}
-                />
-              </div>
-              <div className="EnergyBar">
-                <Energy 
-                  current ={pokemonData.data.attributes.energy}
-                  max={pokemonData.data.attributes.max_energy}
-                />
-              </div>
-              <div className="ExperienceBar">
-                <Experience 
-                  current ={pokemonData.data.attributes.xp}
-                  max={100}
-                />
-              </div>
-            </section>
 
-            <div className='pokemon-image-name-level'>
-              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
-              <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
+            <div className="pokemon-details">
+              <section className='HUD'>
+                <div className="HappinessBar">
+                  <Happiness
+                    current={pokemonData.data.attributes.happiness}
+                    max={100}
+                  />
+                </div>
+                <div className="EnergyBar">
+                  <Energy
+                    current={pokemonData.data.attributes.energy}
+                    max={pokemonData.data.attributes.max_energy}
+                  />
+                </div>
+                <div className="ExperienceBar">
+                  <Experience
+                    current={pokemonData.data.attributes.xp}
+                    max={100}
+                  />
+                </div>
+              </section>
+
+              <div className='pokemon-image-name-level'>
+                <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={()=>playWithCurrentPokemon()}/>
+                <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
+              </div>
+              {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
+              {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
+              {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
             </div>
-            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-            {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
-            {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
-          </div>
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
           )}
@@ -219,7 +219,7 @@ function MainPage() {
                   <Modal.Title>Party</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <PartyMenu fetchSpecificPokemon={fetchData}/>
+                  <PartyMenu fetchSpecificPokemon={fetchData} />
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handlePartyVisible}>
@@ -229,7 +229,7 @@ function MainPage() {
               </Modal>
             </button>
             <img className='help-button' src={helpButton} onClick={handleHelpVisible}>
-
+  
             </img>
             <Modal style={{ display: 'block', position: 'center' }}
               show={showHelp} onHide={handleHelpVisible}>
@@ -237,16 +237,16 @@ function MainPage() {
                 <Modal.Title>Help</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
-Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
-Each of your Pokemon has a finite amount of energy (EN).<br/>
-Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br/>
-Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br/>
-When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br/>
-You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
-Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br/>
-Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br/>
- Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!                
+                Hello, Trainer, and welcome to the world of Poke-gachi!<br />
+                Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br />
+                Each of your Pokemon has a finite amount of energy (EN).<br />
+                Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br />
+                Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br />
+                When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br />
+                You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br />
+                Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br />
+                Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br />
+                Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleHelpVisible}>
