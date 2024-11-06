@@ -117,13 +117,10 @@ function MainPage() {
       </header>
 
       <div className='play-container'>
-
-        
- 
-        
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
-        {pokemonData && pokemonData.data ? (
+          {pokemonData && pokemonData.data ? (
+            
           <div className="pokemon-details">
             <p className="pokemon-level">Level: {pokemonData.data.attributes.level}</p>
             <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
