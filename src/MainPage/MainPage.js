@@ -36,6 +36,40 @@ function MainPage() {
 
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
+  // const [trainData, setTrainData] = useState(null);
+
+  const handleTrain = () => {
+    // const trainUpdate = {
+    //   xp: +100,
+    //   energy: -105,
+    // };
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
+  
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        xp: newXp,
+        energy: newEnergy
+      })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Update success:", data);
+        setPokemonData(data);
+      })
+      .catch(error => {
+        console.error("Update Failed:", error);
+      });
+  };
 
 
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
@@ -82,8 +116,8 @@ function MainPage() {
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
           {pokemonData && pokemonData.data ? (
-            
-          <div className="pokemon-details">
+
+            <div className="pokemon-details">
               <div className='pokemon-bars'>
                 <p className="pokemon-experience-bar">XP: {pokemonData.data.attributes.xp}</p>
                 <p className="pokemon-energy-bar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</p>
@@ -102,7 +136,7 @@ function MainPage() {
           )}
 
           <div className="button-row">
-            <button type="button" className='train-button'>
+            <button type="button" className='train-button' onClick={() => handleTrain()}>
               Train
             </button>
             <button type="button" className='stats-button'>
@@ -111,7 +145,7 @@ function MainPage() {
             <button type="button" className='feed-button'>
               Feed
             </button>
-            <button type="button" className='party-button' onClick={handlePartyVisible}>
+            <button type="button" className='party-button' onClick={() => handlePartyVisible}>
               Party
               <Modal style={{ display: 'block', position: 'center' }}
                 show={showParty} onHide={handlePartyVisible}>
