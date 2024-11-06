@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import PartyMenu from '../PartyMenu/PartyMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Happiness from '../HUD/Happiness';
 import Experience from '../HUD/Experience';
 import Energy from '../HUD/Energy';
@@ -42,6 +43,8 @@ function MainPage() {
   const [pokemonData, setPokemonData] = useState(null);
 
 
+
+
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
@@ -69,17 +72,11 @@ function MainPage() {
 
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } return (
+  } 
+  return (
     <div className="App">
       <header className="App-header">
-
-        We'll be putting the main page here. Further routing will act similarly.
-        <br />
-        <Link to={`/Main/${params}/Stats`}>
-          For example, click here to navigate to the stats page.
-        </Link>
-        <br />
-        <Link to={`/Main/${params}/Train`}>Or click here to navigate to the training page.</Link>
+        Gotta Take Care of 'em All!
       </header>
 
       <div className='play-container'>
@@ -89,18 +86,26 @@ function MainPage() {
             
           <div className="pokemon-details">
             <section className='HUD'>
-              <div className="ExperienceBar">
+              <div className="HappinessBar">
                 <Happiness
+                  current ={pokemonData.data.attributes.happiness}
+                  max={100}
                 />
-                <Energy 
-                />
-                <Experience 
-                />
-                XP: {pokemonData.data.attributes.xp}
               </div>
-              <div className="EnergyBar">Energy: {pokemonData.data.attributes.energy} / {pokemonData.data.attributes.max_energy}</div>
-              <div className="HappinessBar">Happiness: {pokemonData.data.attributes.happiness}</div>
+              <div className="EnergyBar">
+                <Energy 
+                  current ={pokemonData.data.attributes.energy}
+                  max={pokemonData.data.attributes.max_energy}
+                />
+              </div>
+              <div className="ExperienceBar">
+                <Experience 
+                  current ={pokemonData.data.attributes.xp}
+                  max={100}
+                />
+              </div>
             </section>
+
             <div className='pokemon-image-name-level'>
               <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
               <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
