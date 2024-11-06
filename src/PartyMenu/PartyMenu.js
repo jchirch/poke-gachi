@@ -1,7 +1,7 @@
 import './PartyMenu.css';
 import { useState, useEffect } from "react";
 
-function PartyMenu() {
+function PartyMenu({ fetchSpecificPokemon }) {
   const [pokemonPartyData, setPokemonPartyData] = useState(null);
 
   function fetchData() {
@@ -23,8 +23,10 @@ function PartyMenu() {
     fetchData();
   }, []);
 
-  function test() {
-    return alert("test")
+  function renderPokemonOnMain(identifier) {
+    console.log("HIT 1")
+    fetchSpecificPokemon(identifier)
+    console.log("HIT 2")
   }
 
   return (
@@ -38,7 +40,7 @@ function PartyMenu() {
           <ul>
             {pokemonPartyData.data.map((pokemon) => (
               <li key={pokemon.id} className='pokemon-party-member'>
-                <button href="#" onClick={test}>
+                <button href="#" onClick={() => renderPokemonOnMain(pokemon.id)}>
                   <img src={pokemon.attributes.small_img} alt={pokemon.attributes.name} />
                   {pokemon.attributes.name}, Level: {pokemon.attributes.level}
                 </button>
