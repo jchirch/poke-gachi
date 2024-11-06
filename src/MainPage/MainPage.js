@@ -37,6 +37,40 @@ function MainPage() {
   const [showHelp, setShowHelp] = useState(false);
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
+  // const [trainData, setTrainData] = useState(null);
+
+  const handleTrain = () => {
+    // const trainUpdate = {
+    //   xp: +100,
+    //   energy: -105,
+    // };
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
+  
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        xp: newXp,
+        energy: newEnergy
+      })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Update success:", data);
+        setPokemonData(data);
+      })
+      .catch(error => {
+        console.error("Update Failed:", error);
+      });
+  };
 
   
   
@@ -130,7 +164,7 @@ function MainPage() {
           )}
 
           <div className="button-row">
-            <button type="button" className='train-button'>
+            <button type="button" className='train-button' onClick={() => handleTrain()}>
               Train
             </button>
             <button type="button" className='stats-button'>
@@ -139,7 +173,7 @@ function MainPage() {
             <button type="button" className='feed-button' onClick={updateEnergy}>
               Feed
             </button>
-            <button type="button" className='party-button' onClick={handlePartyVisible}>
+            <button type="button" className='party-button' onClick={() => handlePartyVisible}>
               Party
               <Modal style={{ display: 'block', position: 'center' }}
                 show={showParty} onHide={handlePartyVisible}>
