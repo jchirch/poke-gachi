@@ -5,7 +5,7 @@ function PartyMenu() {
   const [pokemonPartyData, setPokemonPartyData] = useState(null);
 
   function fetchData() {
-    fetch("http://127.0.0.1:3000/api/v1/trainers/1/pokemons")
+    fetch("https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons")
       .then(response => {
         console.log("Received response:", response);
         return response.json();
