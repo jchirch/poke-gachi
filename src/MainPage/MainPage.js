@@ -103,7 +103,6 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let fullEnergy = pokemonData.data.attributes.max_energy
     let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
     if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
       alert("Your Pokemon is Stuffed!!! Try training to burn off some energy")
