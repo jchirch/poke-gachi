@@ -166,29 +166,10 @@ function MainPage() {
         <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`} >
 
           {pokemonData && pokemonData.data ? (
+
+          
             
           <div className="pokemon-details">
-            <section className='HUD'>
-              <div className="HappinessBar">
-                <Happiness
-                  current ={pokemonData.data.attributes.happiness}
-                  max={100}
-                />
-              </div>
-              <div className="EnergyBar">
-                <Energy 
-                  current ={pokemonData.data.attributes.energy}
-                  max={pokemonData.data.attributes.max_energy}
-                />
-              </div>
-              <div className="ExperienceBar">
-                <Experience 
-                  current ={pokemonData.data.attributes.xp}
-                  max={100}
-                />
-              </div>
-            </section>
-
             <div className='pokemon-image-name-level'>
               <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
               <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
@@ -200,6 +181,27 @@ function MainPage() {
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
           )}
+
+          <section className='HUD'>
+            <div className="HappinessBar">
+              <Happiness
+                current ={pokemonData.data.attributes.happiness}
+                max={100}
+              />
+            </div>
+            <div className="EnergyBar">
+              <Energy 
+                current ={pokemonData.data.attributes.energy}
+                max={pokemonData.data.attributes.max_energy}
+              />
+            </div>
+            <div className="ExperienceBar">
+              <Experience 
+                current ={pokemonData.data.attributes.xp}
+                max={100}
+              />
+            </div>
+          </section>
 
           <div className="button-row">
             <button type="button" className='train-button' onClick={() => handleTrain()}>
