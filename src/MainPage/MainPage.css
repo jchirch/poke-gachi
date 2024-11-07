@@ -54,7 +54,7 @@
   min-height: 75vmin;
   background-size: contain;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-content: space-between;
   border-style: ridge;
@@ -140,23 +140,25 @@ button:hover{
 
 .pokemon-details {
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+  top:25vmin;
+  /* left: 50%; */
   text-align: center;
   background-color: transparent;
   padding: 20px;
   /* max-width: 100%; 
   max-height: 100%;  */
   /* min-height: auto; */
-  min-width:90vmin;
-  min-height:90vmin;
+  align-self: center;
+  /* min-width:50%; */
+  min-height:50%;
   overflow-y: auto; 
 }
 
 .HUD {
-  margin-top: .5em;
-  margin-bottom: 1.5em;
+  margin-top: 5vmin;
+  max-width: 25vmin;
+  /* margin-left:30vmin; */
+  margin-bottom: 1vmin;
   color: #000000;
   outline: 5px ridge;
   border-radius: 15px;
@@ -165,27 +167,32 @@ button:hover{
 }
 
 .pokemon-name-level {
-  display: block;
-  padding-left: 1em;
-  padding-right: 1em;
+  display: flex;
+  /* margin-left: 25vmin; */
+  /* padding-right: 1em; */
   font-size: 2em;
   color: #000000;
   outline: 1vmin ridge;
   border-radius: 1vmin;
   border: .3vmin ridge rgb(186, 186, 186);
   background-color: rgb(255, 255, 255);
-
-justify-self:center;  
+  text-align: center;
+justify-content:center;  
 max-width:30vmin;
 }
 
 .pokemon-sprite {
   /* width: 100%;
+  
   height: auto; */
   padding: 1vmin;
   margin: 0vmin 0vmin;
+  
   min-height:20vmin;
   margin-top:10%;
+  /* margin-top:10vmin;? */
+  margin-bottom: 5vmin;
+
 }
 .pokemon-sprite:hover{
   animation-duration: .3s;
