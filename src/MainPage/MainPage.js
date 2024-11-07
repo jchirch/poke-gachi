@@ -47,12 +47,12 @@ function MainPage() {
   const [playAnim, setPlayAnim] = useState(0);
 
   const handleTrain = () => {
-    // const trainUpdate = {
-    //   xp: +100,
-    //   energy: -105,
-    // };
     let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
     let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
+    if(pokemonData.data.attributes.energy === 0){
+      alert("Your Pokemon is too exhausted to train, feed them to boost their energy")
+      return
+    }
   
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
@@ -105,21 +105,8 @@ function MainPage() {
   const updateEnergy = () => {
     let fullEnergy = pokemonData.data.attributes.max_energy
     let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
-    if(newEnergy == pokemonData.data.attributes.max_energy){
-      fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ energy: fullEnergy })
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Energy updated:", data);
-      setPokemonData(data)
+    if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
       alert("Your Pokemon is Stuffed!!! Try training to burn off some energy")
-    })
-    .catch(error => console.error("Error updating energy:", error));
       return;
     }
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
@@ -156,6 +143,10 @@ function MainPage() {
     let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
     pkmnCry.play();
     let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
+    if(pokemonData.data.attributes.happiness === 100){
+      alert("Your Pokemon is overstimulated, try playing with it later")
+      return
+    }
     fetch(
       "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}",
       {
