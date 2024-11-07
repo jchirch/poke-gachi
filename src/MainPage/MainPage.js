@@ -57,12 +57,12 @@ function MainPage() {
   }, [])
 
   const handleTrain = () => {
-    // const trainUpdate = {
-    //   xp: +100,
-    //   energy: -105,
-    // };
-    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
-    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
+    if(pokemonData.data.attributes.energy < 10){
+      alert("Your Pokemon is too exhausted to train, feed them to boost their energy")
+      return
+    }
   
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
@@ -107,7 +107,11 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +4, pokemonData.data.attributes.max_energy)
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
+    if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
+      alert("Your Pokemon is Stuffed!!! Try training to burn off some energy")
+      return;
+    }
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
@@ -133,18 +137,21 @@ function MainPage() {
     }, 50);
 
     let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
-    pkmnCry.play();
+    
     let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
-    fetch(
-      `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
+    if(pokemonData.data.attributes.happiness === 100){
+      pkmnCry.play();
+      alert("Your Pokemon is overstimulated, try playing with it later")
+      return
+    }
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {
         method: "PATCH",
         body: JSON.stringify({ happiness: newHappiness }),
         headers: {
           "Content-Type": "application/json",
         },
-      }
-    )
+      })
       .then((response) => response.json())
       .then((data) => {
         setPokemonData(data)
@@ -152,6 +159,15 @@ function MainPage() {
       .catch((error) => console.log("error:", error));
   }
 
+  useEffect(() => {
+    if (pokemonData && pokemonData.data && pokemonData.data.attributes && pokemonData.data.attributes.happiness < 5 ) {
+      alert("Your Pokemon is sad, Click your Pokemon to cheer them up");
+    }
+  }, [pokemonData]);
+
+  if (playAreaPlaceholder) {
+    playAreaPlaceholder.style.backgroundImage = bgTemp;
+  } 
   return (
     <div className="App">
       <div className='play-container' style={{ backgroundImage: `url(${background})` }}>
