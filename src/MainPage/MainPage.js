@@ -152,7 +152,7 @@ function MainPage() {
   }
 
 
-
+=
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
   } 
