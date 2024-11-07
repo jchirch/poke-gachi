@@ -39,8 +39,18 @@ function MainPage() {
   const [showHelp, setShowHelp] = useState(false);
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
+  const [background, setBackground] =useState();
 
-  const [playAnim, setPlayAnim] = useState(0);
+  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg, theBeach]
+  let bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
+  
+  useEffect(() => {
+    fetchData(2);
+  }, [])
+
+  useEffect(() => {
+    setBackground(bgTemp);
+  }, [])
 
   const levelUp = () => {
     let newLevel = Math.max(pokemonData.data.attributes.level +1, 1)
@@ -72,9 +82,8 @@ function MainPage() {
 
   const handleTrain = () => {
     let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
-    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
-    
-    if(pokemonData.data.attributes.energy <10){
+    let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
+    if(pokemonData.data.attributes.energy < 10){
       alert("Your Pokemon is too exhausted to train, feed them to boost their energy")
       return
     }
@@ -130,7 +139,7 @@ function MainPage() {
         console.error('Fetch operation failed:', error);
       });
   }
-  
+
   const updateEnergy = () => {
     let newEnergy = Math.min(pokemonData.data.attributes.energy +10, pokemonData.data.attributes.max_energy)
     if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
@@ -144,27 +153,26 @@ function MainPage() {
       },
       body: JSON.stringify({ energy: newEnergy })
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Energy updated:", data);
-      setPokemonData(data)
-    })
-    .catch(error => console.error("Error updating energy:", error));
+      .then(response => response.json())
+      .then(data => {
+        console.log("Energy updated:", data);
+        setPokemonData(data)
+      })
+      .catch(error => console.error("Error updating energy:", error));
   };
 
-
-  useEffect(() => {
-    fetchData(2);
-  }, [])
-
   function playWithCurrentPokemon() {
-    console.log(playAnim)
-    setPlayAnim(1);
+  
+    let pokemonSprite = document.getElementById("currentRender")
 
-    console.log(playAnim)
+    pokemonSprite.classList.remove('jump')
+    setTimeout(() => {
+      pokemonSprite.classList.add('jump');
+    }, 50);
 
     let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
-    let newHappiness = Math.min(pokemonData.data.attributes.happiness +10, 100);
+    
+    let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
     if(pokemonData.data.attributes.happiness === 100){
       pkmnCry.play();
       alert("Your Pokemon is overstimulated, try playing with it later")
@@ -178,16 +186,19 @@ function MainPage() {
         headers: {
           "Content-Type": "application/json",
         },
-      }
-    )
+      })
       .then((response) => response.json())
       .then((data) => {
-        console.log("response: ", data);
         setPokemonData(data)
       })
       .catch((error) => console.log("error:", error));
-      console.log(playAnim)
   }
+
+  useEffect(() => {
+    if (pokemonData && pokemonData.data && pokemonData.data.attributes && pokemonData.data.attributes.happiness < 5 ) {
+      alert("Your Pokemon is sad, Click your Pokemon to cheer them up");
+    }
+  }, [pokemonData]);
 
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
@@ -195,41 +206,40 @@ function MainPage() {
   
   return (
     <div className="App">
-      <header className="App-header">
+      <div className='play-container' style={{ backgroundImage: `url(${background})` }}>
+        {pokemonData && pokemonData.data ? (
+          <div className="playArea">
+            <section className="ui-info">
+            <button className="help-button" onClick={handleHelpVisible}>
+              <Modal style={{ display: 'block', position: 'center' }}
+                show={showHelp} onHide={handleHelpVisible}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Help</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+              Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
+              Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
+              Each of your Pokemon has a finite amount of energy (EN).<br/>
+              Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br/>
+              Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br/>
+              When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br/>
+              You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
+              Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br/>
+              Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br/>
+              Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!                
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleHelpVisible}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+              </button>
 
-      {/* <button className='feed-button' onClick={() => updateEnergy}>
-              <img src={feedButton} alt="feed your pokemon"></img>  
-            </button> */}
 
-        <button className='help-button' onClick={handleHelpVisible}>
-          <img src={helpButton} alt="help button"></img>
-          <Modal style={{ display: 'block', position: 'center' }}
-            show={showHelp} onHide={handleHelpVisible}>
-            <Modal.Body>
-          Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
-          Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
-          Each of your Pokemon has a finite amount of energy (EN).<br/>
-          Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br/>
-          Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br/>
-          When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br/>
-          You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
-          Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br/>
-          Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br/>
-          Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!                
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleHelpVisible}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </button>
-      </header>
-
-      <div className='play-container'>
-
-        <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}>
-          {pokemonData && pokemonData.data ? (  
+      {/* <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}> */}
+      <div className={`play-area-5`}>
+      {pokemonData && pokemonData.data ? (  
           <div className="pokemon-details">
             <div className='pokemon-image-name-level'>
               <section className='HUD'>
@@ -252,26 +262,21 @@ function MainPage() {
                   />
                 </div>
               </section>
-              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
+            </section>
+
+            <section className="pokemon-display">
+              <img id="currentRender" className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
               <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
-            </div>
+            </section>
 
-            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
+            <section className="button-row">
+              <button className='train-button' onClick={handleTrain}>
+                <img src={trainButton} alt="train your pokemon"/>  
+              </button>
 
-          </div>
-          ) : (
-            <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
-          )}
-
-          <div className="button-row" >
-
-            <button className='train-button' onClick={handleTrain}>
-              <img src={trainButton} alt="train your pokemon"/>  
-            </button>
-
-            <button className='feed-button' onClick={updateEnergy}>
-              <img src={feedButton} alt="feed your pokemon"></img>  
-            </button>
+              <button className='feed-button' onClick={updateEnergy}>
+                <img src={feedButton} alt="feed your pokemon"></img>  
+              </button>
 
             <button className='party-button' onClick={handlePartyVisible}>
               <img src={partyButton} alt="view your party"></img>  
@@ -292,6 +297,5 @@ function MainPage() {
       </div>
     </div>
   );
-}
-
+};
 export default MainPage;
