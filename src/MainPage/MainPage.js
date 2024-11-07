@@ -139,7 +139,7 @@ function MainPage() {
     pkmnCry.play();
     let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
     fetch(
-      "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2",
+      "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}",
       {
         method: "PATCH",
         body: JSON.stringify({ happiness: newHappiness }),
