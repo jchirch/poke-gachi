@@ -25,7 +25,6 @@ import seafloorImg from '../Utilities/Images/Box_Seafloor_BDSP.png'
 import skyImg from '../Utilities/Images/Box_Sky_BDSP.png'
 import snowImg from '../Utilities/Images/Box_Snow_BDSP.png'
 import volcanoImg from '../Utilities/Images/Box_Volcano_BDSP.png'
-import theBeach from '../Utilities/Images/THE_BEACH.png'
 import helpButton from '../Utilities/buttons/Help_button.png'
 import trainButton from '../Utilities/buttons/train_button.png'
 import feedButton from '../Utilities/buttons/feed_button.png'
@@ -47,12 +46,8 @@ function MainPage() {
   const [playAnim, setPlayAnim] = useState(0);
 
   const handleTrain = () => {
-    // const trainUpdate = {
-    //   xp: +100,
-    //   energy: -105,
-    // };
-    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
-    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -50, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
   
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
@@ -78,8 +73,6 @@ function MainPage() {
         console.error("Update Failed:", error);
       });
   };
-
-  
   
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
@@ -103,7 +96,7 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +4, pokemonData.data.attributes.max_energy)
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +20, pokemonData.data.attributes.max_energy)
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
@@ -124,12 +117,7 @@ function MainPage() {
     fetchData(2);
   }, [])
 
-  // function triggerHops(){
-  //   setPlayAnim(1);
-  //   console.log(playAnim);
-  // }
   function playWithCurrentPokemon() {
-  
     console.log(playAnim)
     setPlayAnim(1);
 
@@ -137,9 +125,8 @@ function MainPage() {
 
     let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
     pkmnCry.play();
-    let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
-    fetch(
-      "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}",
+    let newHappiness = Math.min(pokemonData.data.attributes.happiness + 10, 100);
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {
         method: "PATCH",
         body: JSON.stringify({ happiness: newHappiness }),
@@ -160,6 +147,7 @@ function MainPage() {
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
   } 
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -172,9 +160,6 @@ function MainPage() {
           <img src={helpButton} alt="help button"></img>
           <Modal style={{ display: 'block', position: 'center' }}
             show={showHelp} onHide={handleHelpVisible}>
-            <Modal.Header closeButton>
-              <Modal.Title>Help</Modal.Title>
-            </Modal.Header>
             <Modal.Body>
           Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
           Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
@@ -247,9 +232,6 @@ function MainPage() {
               <img src={partyButton} alt="view your party"></img>  
               <Modal style={{ display: 'block', position: 'center' }}
                 show={showParty} onHide={handlePartyVisible}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Party</Modal.Title>
-                </Modal.Header>
                 <Modal.Body>
                   <PartyMenu fetchSpecificPokemon={fetchData}/>
                 </Modal.Body>
