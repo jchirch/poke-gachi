@@ -79,8 +79,8 @@ function MainPage() {
       });
   };
 
-  
-  
+
+
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
   let bgTemp = cityImg;
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
@@ -101,7 +101,7 @@ function MainPage() {
         console.error('Fetch operation failed:', error);
       });
   }
-  
+
   const updateEnergy = () => {
     let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
     if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
@@ -115,12 +115,12 @@ function MainPage() {
       },
       body: JSON.stringify({ energy: newEnergy })
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Energy updated:", data);
-      setPokemonData(data)
-    })
-    .catch(error => console.error("Error updating energy:", error));
+      .then(response => response.json())
+      .then(data => {
+        console.log("Energy updated:", data);
+        setPokemonData(data)
+      })
+      .catch(error => console.error("Error updating energy:", error));
   };
 
 
@@ -133,7 +133,7 @@ function MainPage() {
   //   console.log(playAnim);
   // }
   function playWithCurrentPokemon() {
-  
+
     console.log(playAnim)
     setPlayAnim(1);
 
@@ -171,7 +171,7 @@ function MainPage() {
 
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } 
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -210,8 +210,9 @@ function MainPage() {
 
       <div className='play-container'>
 
-        <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}>
-          {pokemonData && pokemonData.data ? (  
+      {/* <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}> */}
+      <div className={`play-area-5`}>
+      {pokemonData && pokemonData.data ? (  
           <div className="pokemon-details">
             <div className='pokemon-image-name-level'>
               <section className='HUD'>
@@ -263,7 +264,7 @@ function MainPage() {
                   <Modal.Title>Party</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <PartyMenu fetchSpecificPokemon={fetchData}/>
+                  <PartyMenu fetchSpecificPokemon={fetchData} />
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handlePartyVisible}>

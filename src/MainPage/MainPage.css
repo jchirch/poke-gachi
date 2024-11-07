@@ -146,9 +146,11 @@ button:hover{
   text-align: center;
   background-color: transparent;
   padding: 20px;
-  max-width: 100%; 
-  max-height: 90%; 
-  min-height: auto;
+  /* max-width: 100%; 
+  max-height: 100%;  */
+  /* min-height: auto; */
+  min-width:90vmin;
+  min-height:90vmin;
   overflow-y: auto; 
 }
 
@@ -168,16 +170,22 @@ button:hover{
   padding-right: 1em;
   font-size: 2em;
   color: #000000;
-  outline: 5px ridge;
-  border-radius: 15px;
-  border: 5px ridge rgb(186, 186, 186);
+  outline: 1vmin ridge;
+  border-radius: 1vmin;
+  border: .3vmin ridge rgb(186, 186, 186);
   background-color: rgb(255, 255, 255);
+
+justify-self:center;  
+max-width:30vmin;
 }
 
 .pokemon-sprite {
-  width: 100%;
-  height: auto;
-  margin: 10px 0;
+  /* width: 100%;
+  height: auto; */
+  padding: 1vmin;
+  margin: 0vmin 0vmin;
+  min-height:20vmin;
+  margin-top:10%;
 }
 .pokemon-sprite:hover{
   animation-duration: .3s;
