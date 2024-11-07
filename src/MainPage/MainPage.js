@@ -89,6 +89,12 @@ function MainPage() {
       });
   };
 
+
+
+  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
+  let bgTemp = cityImg;
+  bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
+
   function fetchData(identifier) {
 
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
@@ -105,7 +111,7 @@ function MainPage() {
         console.error('Fetch operation failed:', error);
       });
   }
-  
+
   const updateEnergy = () => {
     let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
     if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
@@ -119,12 +125,12 @@ function MainPage() {
       },
       body: JSON.stringify({ energy: newEnergy })
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Energy updated:", data);
-      setPokemonData(data)
-    })
-    .catch(error => console.error("Error updating energy:", error));
+      .then(response => response.json())
+      .then(data => {
+        console.log("Energy updated:", data);
+        setPokemonData(data)
+      })
+      .catch(error => console.error("Error updating energy:", error));
   };
 
   function playWithCurrentPokemon() {
@@ -167,7 +173,7 @@ function MainPage() {
 
   if (playAreaPlaceholder) {
     playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } 
+  }
   return (
     <div className="App">
       <div className='play-container' style={{ backgroundImage: `url(${background})` }}>
@@ -200,6 +206,12 @@ function MainPage() {
               </Modal>
               </button>
 
+
+      {/* <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}> */}
+      <div className={`play-area-5`}>
+      {pokemonData && pokemonData.data ? (  
+          <div className="pokemon-details">
+            <div className='pokemon-image-name-level'>
               <section className='HUD'>
                 <div className="HappinessBar">
                   <Happiness
@@ -258,6 +270,7 @@ function MainPage() {
         ) : (
           <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
         )}
+
       </div>
     </div>
   );
