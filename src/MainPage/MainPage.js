@@ -163,30 +163,37 @@ function MainPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <img className='help-button' src={helpButton} onClick={handleHelpVisible}/>
-        <Modal style={{ display: 'block', position: 'center' }}
-          show={showHelp} onHide={handleHelpVisible}>
-          <Modal.Header closeButton>
-            <Modal.Title>Help</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-        Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
-        Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
-        Each of your Pokemon has a finite amount of energy (EN).<br/>
-        Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br/>
-        Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br/>
-        When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br/>
-        You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
-        Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br/>
-        Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br/>
-        Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!                
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleHelpVisible}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+
+      {/* <button className='feed-button' onClick={() => updateEnergy}>
+              <img src={feedButton} alt="feed your pokemon"></img>  
+            </button> */}
+
+        <button className='help-button' onClick={handleHelpVisible}>
+          <img src={helpButton} alt="help button"></img>
+          <Modal style={{ display: 'block', position: 'center' }}
+            show={showHelp} onHide={handleHelpVisible}>
+            <Modal.Header closeButton>
+              <Modal.Title>Help</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+          Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
+          Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
+          Each of your Pokemon has a finite amount of energy (EN).<br/>
+          Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br/>
+          Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br/>
+          When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br/>
+          You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
+          Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br/>
+          Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br/>
+          Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!                
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleHelpVisible}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </button>
       </header>
 
       <div className='play-container'>
@@ -228,15 +235,15 @@ function MainPage() {
 
           <div className="button-row" >
 
-            <button className='train-button' onClick={() => handleTrain}>
+            <button className='train-button' onClick={handleTrain}>
               <img src={trainButton} alt="train your pokemon"></img>  
             </button>
 
-            <button className='feed-button' onClick={() => updateEnergy}>
+            <button className='feed-button' onClick={updateEnergy}>
               <img src={feedButton} alt="feed your pokemon"></img>  
             </button>
 
-            <button className='party-button' onClick={() => handlePartyVisible}>
+            <button className='party-button' onClick={handlePartyVisible}>
               <img src={partyButton} alt="view your party"></img>  
               <Modal style={{ display: 'block', position: 'center' }}
                 show={showParty} onHide={handlePartyVisible}>

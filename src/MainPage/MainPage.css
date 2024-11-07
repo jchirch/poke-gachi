@@ -8,201 +8,107 @@
   display: flex;
   flex-direction: column;
 }
-
-.play-container .play-area-1 {
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 75vmin;
-  background-size: contain;
+header {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  justify-content: center;
-
-  background-image: url('../Utilities/Images/Box_Beach_BDSP.png');
 }
-
-.play-container .play-area-2 {
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 75vmin;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_Cave_BDSP.png');
-}
-
-.play-container .play-area-3 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-
-  min-height: 75vmin;
-
-  background-image: url('../Utilities/Images/Box_Checks_BDSP.png');
-}
-
-.play-container .play-area-4 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  justify-content: center;
-  background-position: center;
-  min-height: 75vmin;
-  display: flex;
-  flex-direction: row;
-
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_City_BDSP.png');
-}
-
-.play-container .play-area-5 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  justify-content: center;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-
-  align-content: space-between;
-
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-  background-image: url('../Utilities/Images/Box_Crag_BDSP.png');
-}
-
-.play-container .play-area-6 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-  background-position: center;
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-  background-image: url('../Utilities/Images/Box_Desert_BDSP.png');
-}
-
-.play-container .play-area-7 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-
-  background-image: url('../Utilities/Images/Box_Forest_BDSP.png');
-}
-
-.play-container .play-area-8 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  background-position: center;
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_River_BDSP.png');
-}
-
-.play-container .play-area-9 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-
-  min-height: 75vmin;
-  min-width: 75vmin;
-
-  background-image: url('../Utilities/Images/Box_Savanna_BDSP.png');
-}
-
-.play-container .play-area-10 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  justify-content: center;
-
-  min-height: 75vmin;
-  min-width: 75vmin;
-  display: flex;
-  flex-direction: row;
-
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_Seafloor_BDSP.png');
-}
-
-.play-container .play-area-11 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  background-position: center;
-  align-content: space-between;
-  min-height: 75vmin;
-  background-image: url('../Utilities/Images/Box_Sky_BDSP.png');
-}
-
-.play-container .play-area-12 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-
-  min-height: 75vmin;
-  background-image: url('../Utilities/Images/Box_Snow_BDSP.png');
-}
-
-.play-container .play-area-0 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  min-height: 75vmin;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-
-  background-image: url('../Utilities/Images/Box_Volcano_BDSP.png');
+.help-button:hover {
+  cursor:pointer;
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
 }
 
 .play-container {
   display: relative;
   flex-direction: column;
-  min-height: 110vmin;
-  min-width: 110vmin;
+  min-width: 87vmin;
   overflow: auto;
   max-width: 100%;
   max-height: 100%;
+  margin: 1em;
 }
+.play-container
+.play-area-0,
+.play-area-1,
+.play-area-2,
+.play-area-3,
+.play-area-4,
+.play-area-5,
+.play-area-6,
+.play-area-7,
+.play-area-8,
+.play-area-9,
+.play-area-10,
+.play-area-11,
+.play-area-12
+{
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 75vmin;
+  background-size: contain;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  border-style: groove;
+  border-color:darkgray;
+  border-width: 2em;
+  border-radius: 3%;
+}
+
+.play-container .play-area-1 {
+  background-image: url('../Utilities/Images/Box_Beach_BDSP.png');
+}
+
+.play-container .play-area-2 {
+  background-image: url('../Utilities/Images/Box_Cave_BDSP.png');
+}
+
+.play-container .play-area-3 {
+  background-image: url('../Utilities/Images/Box_Checks_BDSP.png');
+}
+
+.play-container .play-area-4 {
+  background-image: url('../Utilities/Images/Box_City_BDSP.png');
+}
+
+.play-container .play-area-5 {
+  background-image: url('../Utilities/Images/Box_Crag_BDSP.png');
+}
+
+.play-container .play-area-6 {
+  background-image: url('../Utilities/Images/Box_Desert_BDSP.png');
+}
+
+.play-container .play-area-7 {
+  background-image: url('../Utilities/Images/Box_Forest_BDSP.png');
+}
+
+.play-container .play-area-8 {
+  background-image: url('../Utilities/Images/Box_River_BDSP.png');
+}
+
+.play-container .play-area-9 {
+  background-image: url('../Utilities/Images/Box_Savanna_BDSP.png');
+}
+
+.play-container .play-area-10 {
+  background-image: url('../Utilities/Images/Box_Seafloor_BDSP.png');
+}
+
+.play-container .play-area-11 {
+  background-image: url('../Utilities/Images/Box_Sky_BDSP.png');
+}
+
+.play-container .play-area-12 {
+  background-image: url('../Utilities/Images/Box_Snow_BDSP.png');
+}
+
+.play-container .play-area-0 {
+  background-image: url('../Utilities/Images/Box_Volcano_BDSP.png');
+}
+
 
 .button-row {
   width: 97.5%;
@@ -214,35 +120,16 @@
   max-width: 90vmin;
 }
 
-/* .train-button:hover,
-.feed-button:hover,
-.party-button:hover  */
+button {
+  border: none;
+  background:transparent;
+}
+
 button:hover{
   cursor:pointer;
   transform: scale(1.05);
   transition: all 0.1s ease-in-out;
 }
-
-.help-button {
-  border: none;
-  background:transparent;
-}
-
-.train-button {
-  border: none;
-  background:transparent;
-}
-
-.feed-button {
-  border: none;
-  background:transparent;
-}
-
-.party-button {
-  border: none;
-  background:transparent;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -269,6 +156,10 @@ button:hover{
   overflow-y: auto; 
 }
 
+.HUD {
+  padding-bottom: 2.5em;
+}
+
 .pokemon-name-level {
   display: block;
   padding-left: 1em;
@@ -278,8 +169,7 @@ button:hover{
   outline: 5px ridge;
   border-radius: 15px;
   border: 5px ridge rgb(186, 186, 186);
-  background-color: rgba(255,255,255,0.7);
-  /* max-width: 150px; */
+  background-color: rgb(255, 255, 255);
 }
 
 .pokemon-sprite {
