@@ -179,7 +179,7 @@ button:hover{
   height: auto;
   margin: 10px 0;
 }
-.pokemon-sprite:hover{
+.jump {
   animation-duration: .3s;
   animation-name: hopping;
   animation-iteration-count: 4;

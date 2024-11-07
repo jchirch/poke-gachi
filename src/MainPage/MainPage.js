@@ -44,8 +44,6 @@ function MainPage() {
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
 
-  const [playAnim, setPlayAnim] = useState(0);
-
   const handleTrain = () => {
     // const trainUpdate = {
     //   xp: +100,
@@ -124,22 +122,20 @@ function MainPage() {
     fetchData(2);
   }, [])
 
-  // function triggerHops(){
-  //   setPlayAnim(1);
-  //   console.log(playAnim);
-  // }
   function playWithCurrentPokemon() {
   
-    console.log(playAnim)
-    setPlayAnim(1);
+    let pokemonSprite = document.getElementById("currentRender")
 
-    console.log(playAnim)
+    pokemonSprite.classList.remove('jump')
+    setTimeout(() => {
+      pokemonSprite.classList.add('jump');
+    }, 50);
 
     let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
     pkmnCry.play();
     let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
     fetch(
-      "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}",
+      `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {
         method: "PATCH",
         body: JSON.stringify({ happiness: newHappiness }),
@@ -154,7 +150,6 @@ function MainPage() {
         setPokemonData(data)
       })
       .catch((error) => console.log("error:", error));
-      console.log(playAnim)
   }
 
   if (playAreaPlaceholder) {
@@ -222,7 +217,7 @@ function MainPage() {
                   />
                 </div>
               </section>
-              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
+              <img id="currentRender" className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
               <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
             </div>
 
