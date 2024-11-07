@@ -210,8 +210,9 @@ function MainPage() {
 
       <div className='play-container'>
 
-        <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}>
-          {pokemonData && pokemonData.data ? (  
+      {/* <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}> */}
+      <div className={`play-area-5`}>
+      {pokemonData && pokemonData.data ? (  
           <div className="pokemon-details">
             <div className='pokemon-image-name-level'>
               <section className='HUD'>
