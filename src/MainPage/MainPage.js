@@ -157,9 +157,8 @@ function MainPage() {
       <div className='play-container' style={{ backgroundImage: `url(${background})` }}>
         {pokemonData && pokemonData.data ? (
           <div className="playArea">
-            <section className="uiInfo">
-              <button className='help-button' onClick={handleHelpVisible}>
-              <img src={helpButton} alt="help button"></img>
+            <section className="ui-info">
+            <button className="help-button" onClick={handleHelpVisible}>
               <Modal style={{ display: 'block', position: 'center' }}
                 show={showHelp} onHide={handleHelpVisible}>
                 <Modal.Header closeButton>
