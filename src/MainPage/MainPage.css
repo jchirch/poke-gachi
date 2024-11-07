@@ -184,7 +184,7 @@ button:hover{
   animation-name: hopping;
   animation-iteration-count: 4;
   animation-direction: alternate;
-  cursor: 
+  cursor: pointer
 }
 @keyframes hopping {
   from {
