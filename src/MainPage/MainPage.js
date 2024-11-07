@@ -222,12 +222,12 @@ function MainPage() {
                   />
                 </div>
               </section>
-              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} />
+              <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
               <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
             </div>
+
             {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-            {/* <p>Description: {pokemonData.data.attributes.description}</p> */}
-            {/* <p>Trainer ID: {pokemonData.data.attributes.trainer_id}</p> */}
+
           </div>
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
@@ -236,7 +236,7 @@ function MainPage() {
           <div className="button-row" >
 
             <button className='train-button' onClick={handleTrain}>
-              <img src={trainButton} alt="train your pokemon"></img>  
+              <img src={trainButton} alt="train your pokemon"/>  
             </button>
 
             <button className='feed-button' onClick={updateEnergy}>
