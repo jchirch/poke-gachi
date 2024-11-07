@@ -45,24 +45,21 @@ function MainPage() {
 
   const [playAnim, setPlayAnim] = useState(0);
 
-  const handleTrain = () => {
-    let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
-    let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
-    if(pokemonData.data.attributes.energy === 0){
-      alert("Your Pokemon is too exhausted to train, feed them to boost their energy")
-      return
-    }
-  
-    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        xp: newXp,
-        energy: newEnergy
+  const levelUp = () => {
+    let newLevel = Math.max(pokemonData.data.attributes.level +1, 1)
+
+    if(pokemonData.data.attributes.xp === 100){
+      alert("Your Pokemon Has Leveled Up!")
+      fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          xp: 0,
+          level: newLevel
+        })
       })
-    })
       .then(response => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -76,6 +73,46 @@ function MainPage() {
       .catch(error => {
         console.error("Update Failed:", error);
       });
+    }
+  };
+
+  const handleTrain = () => {
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
+    
+    if(pokemonData.data.attributes.energy <10){
+      alert("Your Pokemon is too exhausted to train, feed them to boost their energy")
+      return
+    }
+
+    if(newXp === 100){
+      levelUp()
+      return
+    }
+  
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        xp: newXp,
+        energy: newEnergy
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Update success:", data);
+      setPokemonData(data);
+    })
+    .catch(error => {
+      console.error("Update Failed:", error);
+    });
   };
   
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
@@ -139,7 +176,7 @@ function MainPage() {
       return
     }
     fetch(
-      "https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}",
+      `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {
         method: "PATCH",
         body: JSON.stringify({ happiness: newHappiness }),
