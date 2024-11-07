@@ -43,6 +43,18 @@ function MainPage() {
   const [showHelp, setShowHelp] = useState(false);
   const handleHelpVisible = () => setShowHelp(!showHelp);
   const [pokemonData, setPokemonData] = useState(null);
+  const [background, setBackground] =useState();
+
+  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg, theBeach]
+  let bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
+  
+  useEffect(() => {
+    fetchData(2);
+  }, [])
+
+  useEffect(() => {
+    setBackground(bgTemp);
+  }, [])
 
   const handleTrain = () => {
     // const trainUpdate = {
@@ -76,12 +88,6 @@ function MainPage() {
         console.error("Update Failed:", error);
       });
   };
-
-  
-  
-  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
-  let bgTemp = cityImg;
-  bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
 
   function fetchData(identifier) {
 
@@ -117,11 +123,6 @@ function MainPage() {
     .catch(error => console.error("Error updating energy:", error));
   };
 
-
-  useEffect(() => {
-    fetchData(2);
-  }, [])
-
   function playWithCurrentPokemon() {
   
     let pokemonSprite = document.getElementById("currentRender")
@@ -146,15 +147,11 @@ function MainPage() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("response: ", data);
         setPokemonData(data)
       })
       .catch((error) => console.log("error:", error));
   }
 
-  if (playAreaPlaceholder) {
-    playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } 
   return (
     <div className="App">
       <header className="App-header">
@@ -191,9 +188,7 @@ function MainPage() {
         </button>
       </header>
 
-      <div className='play-container'>
-
-        <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}>
+      <div className='play-container' style={{ backgroundImage: `url(${background})` }}>
           {pokemonData && pokemonData.data ? (  
           <div className="pokemon-details">
             <div className='pokemon-image-name-level'>
@@ -220,9 +215,6 @@ function MainPage() {
               <img id="currentRender" className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
               <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
             </div>
-
-            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-
           </div>
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
@@ -256,7 +248,6 @@ function MainPage() {
               </Modal>
             </button>
           </div>  
-        </div>
       </div>
     </div>
   );
