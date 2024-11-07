@@ -51,8 +51,8 @@ function MainPage() {
     //   xp: +100,
     //   energy: -105,
     // };
-    let newEnergy = Math.max(pokemonData.data.attributes.energy -15, 0)
-    let newXp = Math.min(pokemonData.data.attributes.xp +10, 100)
+    let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
+    let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
   
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
@@ -103,7 +103,25 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +4, pokemonData.data.attributes.max_energy)
+    let fullEnergy = pokemonData.data.attributes.max_energy
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
+    if(newEnergy == pokemonData.data.attributes.max_energy){
+      fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ energy: fullEnergy })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Energy updated:", data);
+      setPokemonData(data)
+      alert("Your Pokemon is Stuffed!!! Try training to burn off some energy")
+    })
+    .catch(error => console.error("Error updating energy:", error));
+      return;
+    }
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
