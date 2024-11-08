@@ -20,7 +20,7 @@ cypress instructions here
 
 ## Preview
 
-
+![Screenshot of play screen](./src/Utilities/preview/play_screenshot.png)
 
 
 ## Contributors
