@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": "2",
+    "type": "pokemon",
+    "attributes": {
+      "name": "Charmander",
+      "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely",
+      "gif_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/4.gif",
+      "cry_url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
+      "small_img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "level": 25,
+      "xp": 0,
+      "energy": 20,
+      "max_energy": 110,
+      "happiness": 98,
+      "trainer_id": 1
+    }
+  }
+}
