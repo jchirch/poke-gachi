@@ -118,10 +118,6 @@ function MainPage() {
     }
     
   };
-  
-  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
-  let bgTemp = cityImg;
-  bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
 
   function fetchData(identifier) {
 
