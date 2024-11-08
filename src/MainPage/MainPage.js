@@ -10,6 +10,7 @@ import Happiness from '../HUD/Happiness';
 import Experience from '../HUD/Experience';
 import Energy from '../HUD/Energy';
 
+
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
 import caveImg from '../Utilities/Images/Box_Cave_BDSP.png'
 import checkImg from '../Utilities/Images/Box_Checks_BDSP.png'
@@ -69,7 +70,9 @@ function MainPage() {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      console.log(response)
       return response.json();
+
     })
     .then(data => {
       console.log("Update success:", data);
@@ -120,7 +123,8 @@ function MainPage() {
   };
 
   function fetchData(identifier) {
-
+  
+  
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
 
       .then(response => {
