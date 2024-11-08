@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'PkmnFont';
   src: url(../Utilities/pokemon-ds-font.ttf);
@@ -101,6 +100,7 @@ button:hover{
   transition: all 0.1s ease-in-out;
 }
 
+<<<<<<< HEAD
 .pokemon-details {
   position: absolute;
   top: 45%;
@@ -125,6 +125,8 @@ button:hover{
   background-color: rgb(255, 255, 255);
 }
 
+=======
+>>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
 .pokemon-name-level {
   display: block;
   width: 65%;
@@ -132,16 +134,12 @@ button:hover{
   margin: 1vw auto 1vw auto;
   font-size: 2em;
   color: #000000;
-  outline: 1vmin ridge;
-  border-radius: 1vmin;
-  border: .3vmin ridge rgb(186, 186, 186);
+  outline: 5px ridge;
+  border-radius: 15px;
+  border: 5px ridge rgb(186, 186, 186);
   background-color: rgb(255, 255, 255);
-
-justify-self:center;  
-max-width:30vmin;
 }
 .jump {
-
   animation-duration: .3s;
   animation-name: hopping;
   animation-iteration-count: 4;
