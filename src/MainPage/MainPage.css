@@ -7,322 +7,126 @@
   font-family: 'PkmnFont';
   display: flex;
   flex-direction: column;
-}
-
-.play-container .play-area-1 {
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 75vmin;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-  background-image: url('../Utilities/Images/Box_Beach_BDSP.png');
-}
-
-.play-container .play-area-2 {
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 75vmin;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_Cave_BDSP.png');
-}
-
-.play-container .play-area-3 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-
-  min-height: 75vmin;
-
-  background-image: url('../Utilities/Images/Box_Checks_BDSP.png');
-}
-
-.play-container .play-area-4 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  justify-content: center;
-  background-position: center;
-  min-height: 75vmin;
-  display: flex;
-  flex-direction: row;
-
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_City_BDSP.png');
-}
-
-.play-container .play-area-5 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  justify-content: center;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-
-  align-content: space-between;
-
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-  background-image: url('../Utilities/Images/Box_Crag_BDSP.png');
-}
-
-.play-container .play-area-6 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-  background-position: center;
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-  background-image: url('../Utilities/Images/Box_Desert_BDSP.png');
-}
-
-.play-container .play-area-7 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-between;
-
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-
-  background-image: url('../Utilities/Images/Box_Forest_BDSP.png');
-}
-
-.play-container .play-area-8 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  background-position: center;
-  min-height: 75vmin;
-  /* min-width: 75vmin; */
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_River_BDSP.png');
-}
-
-.play-container .play-area-9 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-
-  min-height: 75vmin;
-  min-width: 75vmin;
-
-  background-image: url('../Utilities/Images/Box_Savanna_BDSP.png');
-}
-
-.play-container .play-area-10 {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  justify-content: center;
-
-  min-height: 75vmin;
-  min-width: 75vmin;
-  display: flex;
-  flex-direction: row;
-
-  align-content: space-between;
-
-  background-image: url('../Utilities/Images/Box_Seafloor_BDSP.png');
-}
-
-.play-container .play-area-11 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  background-position: center;
-  align-content: space-between;
-  min-height: 75vmin;
-  background-image: url('../Utilities/Images/Box_Sky_BDSP.png');
-}
-
-.play-container .play-area-12 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
-
-
-  min-height: 75vmin;
-  background-image: url('../Utilities/Images/Box_Snow_BDSP.png');
-}
-
-.play-container .play-area-0 {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  min-height: 75vmin;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-
-  background-image: url('../Utilities/Images/Box_Volcano_BDSP.png');
+  background-color:rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  padding: 1vw;
 }
 
 .play-container {
-  display: relative;
-  /* align-self: center; */
-  flex-direction: column;
-  min-height: 110vmin;
-  min-width: 110vmin;
-  /* width:100%; */
-  overflow: auto; /* or hidden */
-  max-width: 100%; /* Ensure it doesn’t expand beyond screen width */
-  max-height: 100%; /* Adjust as needed */
-
-
-}
-
-/* .button-containers-1 {
-  background-color: rgb(0, 172, 3);
-  height: 80%;
-} */
-
-
-
-.button-row {
-  width: 97.5%;
-  /* background-color: pink; */
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 50vh;
-  max-width: 90vmin;
-  /* max-width: 1080px; */
+  flex-direction: column;
+  justify-content: space-between;
+  background-position: center;
+  background-size: cover;
+  border: 1em ridge rgb(255, 255, 255);
+  border-radius: 3%;
+  width: 80vw;
+  height: 75vh;
+  overflow: hidden;
+  position: relative;
+  padding: 1vh;
 }
 
-.train-button,
-.help-button,
-.stats-button,
-.feed-button,
-.party-button {
-  font-family: 'PkmnFont';
+.ui-info {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between; 
+  width: 100%;
+}
+
+.HUD {
+  width: 35%;
+  margin: 1em;
+  color: #000000;
   outline: 5px ridge;
-  border-radius: 50px;
-  /* padding: 1rem 2rem; */
+  border-radius: 15px;
   border: 5px ridge rgb(186, 186, 186);
+  background-color: rgb(255, 255, 255);
 }
 
 .help-button {
-  outline-color: rgb(0, 145, 255);;
+  width: 6vw;
+  height: 6vw;
+  border: white;
+  border-radius: 50%;
+  border-style: ridge;
+  border-width: .3em;
+  background-color: rgb(255, 0, 0);
+  background-image: url(../Utilities/buttons/Help_button.png);
+  background-size: cover;
+  background-position: center;
 }
 
-.train-button {
-  outline-color: orange;
+.help-button:hover {
+  cursor:pointer;
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
 }
 
-.stats-button {
-  outline-color: rgb(255, 255, 255);
-}
-
-.feed-button {
-  outline-color: rgb(61, 195, 13);
-}
-
-.party-button {
-  outline-color: rgb(255, 0, 0);
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-/* .pokemon-sprite {
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200x;
-} */
-/* Position Pokémon details in the center */
-.pokemon-details {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+.pokemon-display {
   text-align: center;
   background-color: transparent;
-  padding: 20px;
   max-width: 100%; 
-  max-height: 100%; 
-  overflow-y: auto; 
-}
-
-.pokemon-bars {
-  /* position:absolute;
-  top: 0;
-  left: 0; */
-  position: relative;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 20%;
-}
-
-.pokemon-experience-bar,
-.pokemon-energy-bar,
-.pokemon-happiness-bar {
-background-color: aqua;
-
-justify-content: flex-start;
-}
-
-.pokemon-name-level {
-  font-size: 2em;
-  color: #3b4cca;
-  outline: 5px ridge;
-  border-radius: 15px;
-  /* padding: 2rem, 1rem; */
-  border: 5px ridge rgb(186, 186, 186);
-  background-color: rgba(255,255,255,0.7);
-  /* max-width: 150px; */
+  min-height: auto;
+  overflow-y: auto;
+  justify-content: flex-end;
+  margin: 5vw 0 0 0;;
 }
 
 .pokemon-sprite {
-  width: 150px;
-  height: 150px;
-  margin: 10px 0;
+  height: 10vw;
+  cursor: pointer;
 }
 
+.button-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  padding: 5px;
+}
 
-.pokemon-level,
-.pokemon-experience-bar,
-.pokemon-energy-bar,
-.pokemon-happiness-bar {
+button {
+  border: none;
+  background:transparent;
+}
+
+button:hover{
+  cursor:pointer;
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
+}
+
+.pokemon-name-level {
+  display: block;
+  width: 65%;
+  padding: 0 1em;
+  margin: 1vw auto 1vw auto;
+  font-size: 2em;
+  color: #000000;
+  outline: 5px ridge;
+  border-radius: 15px;
+  border: 5px ridge rgb(186, 186, 186);
+  background-color: rgb(255, 255, 255);
+}
+.jump {
+  animation-duration: .3s;
+  animation-name: hopping;
+  animation-iteration-count: 4;
+  animation-direction: alternate;
+}
+
+@keyframes hopping {
+  from {
+    translate:0 0vw;
+  } to {
+    translate: 0 -2vw;
+  }
+}
+.pokemon-level {
   font-size: 1em;
   color: #000000;
   margin: 5px 0;

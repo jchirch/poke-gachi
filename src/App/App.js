@@ -7,6 +7,7 @@ import MainPage from '../MainPage/MainPage';
 import StartPage from '../StartPage/StartPage';
 import TrainPage from '../TrainPage/TrainPage';
 import StatPage from '../StatPage/StatPage';
+
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
 import caveImg from '../Utilities/Images/Box_Cave_BDSP.png'
 import checkImg from '../Utilities/Images/Box_Checks_BDSP.png'
@@ -19,6 +20,7 @@ import seafloorImg from '../Utilities/Images/Box_Seafloor_BDSP.png'
 import skyImg from '../Utilities/Images/Box_Sky_BDSP.png'
 import snowImg from '../Utilities/Images/Box_Snow_BDSP.png'
 import volcanoImg from '../Utilities/Images/Box_Volcano_BDSP.png'
+
 function App() {
 
   const [user, setUser] = useState({});
@@ -27,7 +29,6 @@ function App() {
   let params = "this";
   let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg]
 
-  
   return (
     <div className="App">
       <img className="Logo" onClick={() => {navigate(`/`);}} src={'https://fontmeme.com/permalink/241101/6f970496b8e7aa40eddeec38e543fbb0.png'}>
