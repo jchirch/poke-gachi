@@ -9,8 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Happiness from '../HUD/Happiness';
 import Experience from '../HUD/Experience';
 import Energy from '../HUD/Energy';
-import testFile from '../Utilities/TestData/PkmnData.json';
-
 
 
 import beachImg from '../Utilities/Images/Box_Beach_BDSP.png'
@@ -25,7 +23,6 @@ import seafloorImg from '../Utilities/Images/Box_Seafloor_BDSP.png'
 import skyImg from '../Utilities/Images/Box_Sky_BDSP.png'
 import snowImg from '../Utilities/Images/Box_Snow_BDSP.png'
 import volcanoImg from '../Utilities/Images/Box_Volcano_BDSP.png'
-import theBeach from '../Utilities/Images/THE_BEACH.png'
 import helpButton from '../Utilities/buttons/Help_button.png'
 import trainButton from '../Utilities/buttons/train_button.png'
 import feedButton from '../Utilities/buttons/feed_button.png'
@@ -45,7 +42,7 @@ function MainPage() {
   const [pokemonData, setPokemonData] = useState(null);
   const [background, setBackground] =useState();
 
-  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg, theBeach]
+  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg, beachImg]
   let bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
   
   useEffect(() => {
@@ -56,7 +53,7 @@ function MainPage() {
     setBackground(bgTemp);
   }, [])
 
-    const levelUp = () => {
+  const levelUp = () => {
     let newLevel = Math.max(pokemonData.data.attributes.level +1, 1)
     alert("Your Pokemon Has Leveled Up!")
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
@@ -86,8 +83,7 @@ function MainPage() {
     });  
   };
 
-
-    const handleTrain = () => {
+  const handleTrain = () => {
     let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
     let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
     if(pokemonData.data.attributes.energy < 10){
@@ -146,7 +142,7 @@ function MainPage() {
   }
   
   const updateEnergy = () => {
-    let newEnergy = Math.min(pokemonData.data.attributes.energy +2, pokemonData.data.attributes.max_energy)
+    let newEnergy = Math.min(pokemonData.data.attributes.energy +10, pokemonData.data.attributes.max_energy)
     if(pokemonData.data.attributes.energy === pokemonData.data.attributes.max_energy){
       alert("Your Pokemon is Stuffed!!! Try training to burn off some energy")
       return;
@@ -183,7 +179,6 @@ if(pokemonData.data.attributes.happiness === 100){
       alert("Your Pokemon is overstimulated, try playing with it later")
       return
     }
-
     fetch(
       `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {

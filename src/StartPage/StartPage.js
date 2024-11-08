@@ -1,22 +1,20 @@
 import './StartPage.css'
 import { useState, useEffect } from "react";
 import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
+import playButton from "../Utilities/buttons/play_button.png"
 
 function StartPage() {
 let UserVal = "userval";
   const navigate = useNavigate();
- 
-  
 
   return (
     <div className="StartPage">
-      <header className="start-header">
+      <section className="start-area">
         
-        <Link className="start-words" to={`/Main/${UserVal}`}>
-          Current element is the start page.<br/>
-          Click here to advance to the game!
+        <Link className="click-here" to={`/Main/${UserVal}`}>
+          <img src={playButton}></img>
         </Link>
-      </header>
+      </section>
 
     </div>
   );
