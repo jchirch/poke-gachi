@@ -41,7 +41,7 @@ function MainPage() {
   const [pokemonData, setPokemonData] = useState(null);
   const [background, setBackground] =useState();
 
-  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg, theBeach]
+  let bgArray = [beachImg, caveImg, checkImg, cityImg, cragImg, desertImg, forestImg, savannahImg, seafloorImg, skyImg, snowImg, volcanoImg, beachImg]
   let bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
   
   useEffect(() => {
@@ -52,11 +52,7 @@ function MainPage() {
     setBackground(bgTemp);
   }, [])
 
-<<<<<<< HEAD
   const levelUp = () => {
-=======
-    const levelUp = () => {
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
     let newLevel = Math.max(pokemonData.data.attributes.level +1, 1)
     alert("Your Pokemon Has Leveled Up!")
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
@@ -84,12 +80,7 @@ function MainPage() {
     });  
   };
 
-<<<<<<< HEAD
   const handleTrain = () => {
-=======
-
-    const handleTrain = () => {
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
     let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
     let newXp = Math.min(pokemonData.data.attributes.xp +5, 100)
     if(pokemonData.data.attributes.energy < 10){
@@ -183,10 +174,6 @@ if(pokemonData.data.attributes.happiness === 100){
       alert("Your Pokemon is overstimulated, try playing with it later")
       return
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
     fetch(
       `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {
@@ -204,19 +191,6 @@ if(pokemonData.data.attributes.happiness === 100){
       .catch((error) => console.log("error:", error));
   }
 
-<<<<<<< HEAD
-  useEffect(() => {
-    if (pokemonData && pokemonData.data && pokemonData.data.attributes && pokemonData.data.attributes.happiness < 5 ) {
-      alert("Your Pokemon is sad, Click your Pokemon to cheer them up");
-    }
-  }, [pokemonData]);
-
-  if (playAreaPlaceholder) {
-    playAreaPlaceholder.style.backgroundImage = bgTemp;
-  } 
-  
-=======
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
   return (
     <div className="App">
       <div className='play-container' style={{ backgroundImage: `url(${background})` }}>
@@ -285,24 +259,6 @@ if(pokemonData.data.attributes.happiness === 100){
                 <img src={feedButton} alt="feed your pokemon"></img>  
               </button>
 
-<<<<<<< HEAD
-            <button className='party-button' onClick={handlePartyVisible}>
-              <img src={partyButton} alt="view your party"></img>  
-              <Modal style={{ display: 'block', position: 'center' }}
-                show={showParty} onHide={handlePartyVisible}>
-                <Modal.Body>
-                  <PartyMenu fetchSpecificPokemon={fetchData}/>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handlePartyVisible}>
-                    Close
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </button>
-          </div>  
-        </div>
-=======
               <button className='party-button' onClick={handlePartyVisible}>
                 <img src={partyButton} alt="view your party"></img>  
                 <Modal style={{ display: 'block', position: 'center' }}
@@ -325,7 +281,6 @@ if(pokemonData.data.attributes.happiness === 100){
         ) : (
           <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
         )}
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
       </div>
     </div>
   );
