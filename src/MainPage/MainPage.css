@@ -100,7 +100,6 @@ button:hover{
   transition: all 0.1s ease-in-out;
 }
 
-<<<<<<< HEAD
 .pokemon-details {
   position: absolute;
   top: 45%;
@@ -125,8 +124,6 @@ button:hover{
   background-color: rgb(255, 255, 255);
 }
 
-=======
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
 .pokemon-name-level {
   display: block;
   width: 65%;
