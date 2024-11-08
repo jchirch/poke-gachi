@@ -1,24 +1,17 @@
 import './ErrorPage.css';
-import { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function ErrorPage() {
-console.log(useParams());
+function ErrorPage({error}) {
+  const { code } = useParams();
 
+  const errorCode = error || code || 404
+  console.log("You received an error: ", errorCode);
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="ErrorPage">
+      <header className="Error-header">
         <p>
-          You shouldn't see this in the final version! 
+          You shouldn't be seeing this! Click the logo to head back to the main page. 
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
