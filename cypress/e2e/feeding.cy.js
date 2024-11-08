@@ -5,5 +5,15 @@ describe('feeding spec', () => {
       fixture: 'PkmnData'
     }).as('getParty');
     cy.visit('http://localhost:3000/');
-})
+  })
+  it('Should correctly show energy values', () => {
+
+  })
+  it('Should correctly update energy values when clicking the feed button.', () => {
+
+  })
+  it('Should correctly update energy values when clicking the train button.', () => {
+
+  })
+
 });
