@@ -5,16 +5,29 @@ describe('help spec', () => {
       fixture: 'PkmnData'
     }).as('getParty');
     cy.visit('http://localhost:3000/');
-})
+    cy.get('.start-words').click();
+  })
 
-it('Should correctly show energy values', () => {
+it('Should correctly show button', () => {
+  
+cy.wait('@getParty').as('PokemonDataRequest');
 
-})
-it('Should correctly update energy values when clicking the feed button.', () => {
-
-})
-it('Should correctly update energy values when clicking the train button.', () => {
 
 })
+it('button should be clickable', () => {
+
+})
+it('Should show correct text when clicking button', () => {
+
+})
+
+it('Should work when tabbing to button', () => {
+
+})
+
+it('Should show correct text when clicking button', () => {
+
+})
+
 
 });

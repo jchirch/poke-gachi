@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Happiness from '../HUD/Happiness';
 import Experience from '../HUD/Experience';
 import Energy from '../HUD/Energy';
-
+import testFile from '../Utilities/TestData/PkmnData.json';
 
 
 
@@ -62,7 +62,9 @@ function MainPage() {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      console.log(response)
       return response.json();
+
     })
     .then(data => {
       console.log("Update success:", data);
@@ -119,7 +121,9 @@ function MainPage() {
   bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
 
   function fetchData(identifier) {
-
+  
+      console.log("Parsed data:", testFile)
+   
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
 
       .then(response => {
