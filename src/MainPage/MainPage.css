@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'PkmnFont';
   src: url(../Utilities/pokemon-ds-font.ttf);
@@ -9,62 +8,15 @@
   display: flex;
   flex-direction: column;
   background-color:rgb(0, 0, 0);
-  width: 100%;
-  height: 100%;
-  padding: 1vw;
-}
-
-.play-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-position: center;
-  min-height: 75vmin;
-  background-size: contain;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: space-between;
-  border-style: ridge;
-  color: #000000;
-  border-color:rgb(255, 255, 255);
-  border-width: 1em;
-  border-radius: 3%;
-  width: 80vw;
-  height: 75vh;
-  overflow: hidden;
-  position: relative;
-  padding: 1vh;
-}
-
-.ui-info {
-  display: flex; 
-  flex-direction: row; 
-  justify-content: space-between; 
-  width: 100%;
-}
-
-.HUD {
-  width: 35%;
-  margin: 1em;
-  color: #000000;
-  outline: 5px ridge;
-  border-radius: 15px;
-  border: 5px ridge rgb(186, 186, 186);
-  background-color: rgb(255, 255, 255);
+  padding: 2em;
 }
 
 .help-button {
-  width: 6vw;
-  height: 6vw;
-  border: white;
-  border-radius: 50%;
-  border-style: ridge;
+  border:white;
+  border-radius: 100%;
+  border-style:ridge;
   border-width: .3em;
   background-color: rgb(255, 0, 0);
-  background-image: url(../Utilities/buttons/Help_button.png);
-  background-size: cover;
-  background-position: center;
 }
 
 .help-button:hover {
@@ -73,29 +25,107 @@
   transition: all 0.1s ease-in-out;
 }
 
-.pokemon-display {
-  text-align: center;
-  background-color: transparent;
-  max-width: 100%; 
-  min-height: auto;
-  overflow-y: auto;
-  justify-content: flex-end;
-  margin: 5vw 0 0 0;;
+.play-container {
+  display: relative;
+  flex-direction: column;
+  min-width: 87vmin;
+  overflow: auto;
+  /* max-width: 100%; */
+  max-height: 100%;
+  margin: 1em;
 }
-
-.pokemon-sprite {
-  height: 10vw;
-  cursor: pointer;
-}
-
-.button-row {
-  width: 100%;
+.play-container
+.play-area-0,
+.play-area-1,
+.play-area-2,
+.play-area-3,
+.play-area-4,
+.play-area-5,
+.play-area-6,
+.play-area-7,
+.play-area-8,
+.play-area-9,
+.play-area-10,
+.play-area-11,
+.play-area-12
+{
+  background-repeat: no-repeat;
+  background-position: contain;
+  background-repeat: no-repeat;
+  min-height: 75vmin;
+  background-size: contain;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  border-style: ridge;
+  color: #000000;
+  border-color:rgb(255, 255, 255);
+  border-width: 1em;
+  border-radius: 3%;
+}
+
+.play-container .play-area-1 {
+  background-image: url('../Utilities/Images/Box_Beach_BDSP.png');
+}
+
+.play-container .play-area-2 {
+  background-image: url('../Utilities/Images/Box_Cave_BDSP.png');
+}
+
+.play-container .play-area-3 {
+  background-image: url('../Utilities/Images/Box_Checks_BDSP.png');
+}
+
+.play-container .play-area-4 {
+  background-image: url('../Utilities/Images/Box_City_BDSP.png');
+}
+
+.play-container .play-area-5 {
+  background-image: url('../Utilities/Images/Box_Crag_BDSP.png');
+}
+
+.play-container .play-area-6 {
+  background-image: url('../Utilities/Images/Box_Desert_BDSP.png');
+}
+
+.play-container .play-area-7 {
+  background-image: url('../Utilities/Images/Box_Forest_BDSP.png');
+}
+
+.play-container .play-area-8 {
+  background-image: url('../Utilities/Images/Box_River_BDSP.png');
+}
+
+.play-container .play-area-9 {
+  background-image: url('../Utilities/Images/Box_Savanna_BDSP.png');
+}
+
+.play-container .play-area-10 {
+  background-image: url('../Utilities/Images/Box_Seafloor_BDSP.png');
+}
+
+.play-container .play-area-11 {
+  background-image: url('../Utilities/Images/Box_Sky_BDSP.png');
+}
+
+.play-container .play-area-12 {
+  background-image: url('../Utilities/Images/Box_Snow_BDSP.png');
+}
+
+.play-container .play-area-0 {
+  background-image: url('../Utilities/Images/Box_Volcano_BDSP.png');
+}
+
+
+.button-row {
+  width: 97.5%;
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 1rem;
-  padding: 5px;
+  margin-top: 50vh;
+  max-width: 90vmin;
 }
 
 button {
@@ -111,75 +141,69 @@ button:hover{
 
 .pokemon-details {
   position: absolute;
-  top:25vmin;
+  /* top: 45%; */
   /* left: 50%; */
+  /* transform: translate(-50%, -40%); */
   text-align: center;
   background-color: transparent;
   padding: 20px;
-  /* max-width: 100%; 
-  max-height: 100%;  */
-  /* min-height: auto; */
-  align-self: center;
-  /* min-width:50%; */
-  min-height:50%;
+  max-width: 100%; 
+  max-height: 100%; 
+  min-height: auto;
+  min-width:30vmin;
+  min-height:30vmin;
   overflow-y: auto; 
 }
 
 .HUD {
-  margin-top: 5vmin;
-  max-width: 25vmin;
-  /* margin-left:30vmin; */
-  margin-bottom: 1vmin;
+
   color: #000000;
   outline: 5px ridge;
   border-radius: 15px;
   border: 5px ridge rgb(186, 186, 186);
   background-color: rgb(255, 255, 255);
+
+  max-width:30vmin;
+  /* margin-left: 32.5%;  */
+  margin-top: 10%;
 }
 
 .pokemon-name-level {
-
-  display: block;
-  width: 65%;
-  padding: 0 1em;
-  margin: 1vw auto 1vw auto;
+  display: flex;
+  /* padding-left: 25vmin; */
+  /* padding-right: 25vmin; */
   font-size: 2em;
   color: #000000;
   outline: 1vmin ridge;
   border-radius: 1vmin;
   border: .3vmin ridge rgb(186, 186, 186);
   background-color: rgb(255, 255, 255);
-  text-align: center;
-justify-content:center;  
-max-width:30vmin;
+  justify-content: center;
+  max-width: 30vmin;
 }
-.jump {
 
 .pokemon-sprite {
   /* width: 100%;
-  
   height: auto; */
   padding: 1vmin;
   margin: 0vmin 0vmin;
-  
   min-height:20vmin;
   margin-top:10%;
-  /* margin-top:10vmin;? */
-  margin-bottom: 5vmin;
-
 }
 .pokemon-sprite:hover{
   animation-duration: .3s;
   animation-name: hopping;
   animation-iteration-count: 4;
   animation-direction: alternate;
+  cursor: pointer
 }
-
 @keyframes hopping {
   from {
     translate:0 0vw;
+    scale:100% ;
   } to {
-    translate: 0 -2vw;
+    translate: 0 -5vw;
+    scale: 100% 1;
   }
 }
 .pokemon-level {

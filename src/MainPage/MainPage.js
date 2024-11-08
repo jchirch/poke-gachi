@@ -45,6 +45,33 @@ function MainPage() {
   const [pokemonData, setPokemonData] = useState(null);
 
   const [playAnim, setPlayAnim] = useState(0);
+  const levelUp = () => {
+    let newLevel = Math.max(pokemonData.data.attributes.level +1, 1)
+    alert("Your Pokemon Has Leveled Up!")
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        xp: 0,
+        level: newLevel
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Update success:", data);
+      setPokemonData(data);
+    })
+    .catch(error => {
+      console.error("Update Failed:", error);
+    });  
+  };
 
   const handleTrain = () => {
     let newEnergy = Math.max(pokemonData.data.attributes.energy -10, 0)
@@ -53,7 +80,7 @@ function MainPage() {
       alert("Your Pokemon is too exhausted to train, feed them to boost their energy")
       return
     }
-  
+
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
@@ -64,19 +91,25 @@ function MainPage() {
         energy: newEnergy
       })
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("Update success:", data);
-        setPokemonData(data);
-      })
-      .catch(error => {
-        console.error("Update Failed:", error);
-      });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Update success:", data);
+      setPokemonData(data);
+    })
+    .catch(error => {
+      console.error("Update Failed:", error);
+    });
+
+    if(newXp > 99){
+      levelUp()
+      return
+    }
+    
   };
 
 
@@ -210,9 +243,9 @@ function MainPage() {
 
       <div className='play-container'>
 
+      <div className={`play-area-7`}>
       {/* <div className={`play-area-${Math.round(Math.random() * bgArray.length)}`}> */}
-      <div className={`play-area-5`}>
-          {pokemonData && pokemonData.data ? (
+        {pokemonData && pokemonData.data ? (  
           <div className="pokemon-details">
             <div className='pokemon-image-name-level'>
               <section className='HUD'>
@@ -233,15 +266,15 @@ function MainPage() {
                     current ={pokemonData.data.attributes.xp}
                     max={100}
                   />
-              </div>
+                </div>
               </section>
               <img className="pokemon-sprite" src={pokemonData.data.attributes.gif_url} alt={pokemonData.data.attributes.name} onClick={playWithCurrentPokemon} />
-                <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
-              </div>
-
-              {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
-
+              <h2 className="pokemon-name-level">{pokemonData.data.attributes.name}, Level: {pokemonData.data.attributes.level}</h2>
             </div>
+
+            {/* <audio controls src={pokemonData.data.attributes.cry_url}>Your browser does not support the audio tag.</audio> */}
+
+          </div>
           ) : (
             <h1 className="pokemon-load-error">Loading Pokémon data...</h1>
           )}
@@ -273,7 +306,7 @@ function MainPage() {
                 </Modal.Footer>
               </Modal>
             </button>
-          </div>
+          </div>  
         </div>
       </div>
     </div>
