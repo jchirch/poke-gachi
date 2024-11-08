@@ -210,16 +210,16 @@ if(pokemonData.data.attributes.happiness === 100){
                   <Modal.Title>Help</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-              Hello, Trainer, and welcome to the world of Poke-gachi!<br/>
-              Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!<br/>
-              Each of your Pokemon has a finite amount of energy (EN).<br/>
-              Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.<br/>
-              Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.<br/>
-              When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!<br/>
-              You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.<br/>
-              Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!<br/>
-              Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.<br/>
-              Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!                
+              <p>Hello, Trainer, and welcome to the world of Poke-gachi!
+              Here, your Pokémon thrive with your care and attention. You can feed, train, and play with your Pokémon. With a little love and care, they can even level up!</p>
+              <p>Each of your Pokemon has a finite amount of energy (EN).
+              Training your Pokémon helps them earn experience (XP), but uses up energy, so keep an eye on its Energy Bar.
+              Be careful not to overdo it and leave them entirely exhausted, though, or your Pokémon might become too tired to train, meaning it will be unable to earn experience.</p>
+              <p>When your Pokémon gains enough experience, they'll level up, increasing their maximum energy limit!
+              You can increase your Pokémon’s <i>current</i> energy by feeding it, giving it the energy it needs to grow.</p>
+              <p>Lastly, you can interact with your Pokemon! While exhausting a Pokemon can make them unhappy, playing with them does just the opposite, helping them increases their happiness (HL)!</p>
+              <p>Click the Party button to view and manage your Pokémon, ensuring every team member gets the attention they deserve.</p>
+              <p>Take care, dear Trainer, and don't forget to appreciate your Pokemon just as much as they appreciate you!</p>                
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleHelpVisible}>
