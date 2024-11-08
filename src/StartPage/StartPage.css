@@ -22,7 +22,23 @@
   align-self:center;
   justify-content: center;
   background-repeat: no-repeat;
-  padding-bottom: 15em;
+  padding-bottom: 30vw;
+  padding-top: 5vw;
+}
+
+.click-here:hover{
+  cursor:pointer;
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
+}
+
+.click-here:active{
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
+}
+
+.App .Logo{
+  size: 10em;
 }
 
 .App-link {

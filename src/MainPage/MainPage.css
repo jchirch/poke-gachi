@@ -18,14 +18,15 @@
   flex-direction: column;
   justify-content: space-between;
   background-position: center;
-  background-size: cover;
+  background-size:cover;
+  background-repeat:no-repeat;
   border: 1em ridge rgb(255, 255, 255);
   border-radius: 3%;
-  width: 80vw;
-  height: 75vh;
+  width: 69em;
+  height: 59em;
   overflow: hidden;
   position: relative;
-  padding: 1vh;
+  /* padding: 0vh; */
 }
 
 .ui-info {
@@ -33,16 +34,21 @@
   flex-direction: row; 
   justify-content: space-between; 
   width: 100%;
+  height: 65%;
 }
 
 .HUD {
-  width: 35%;
-  margin: 1em;
-  color: #000000;
+  
+  width: 33%;
+  height: 30%;  
+  margin: 5%;
+  padding: .25%;
+  color: #0b0b0b;
   outline: 5px ridge;
   border-radius: 15px;
-  border: 5px ridge rgb(186, 186, 186);
-  background-color: rgb(255, 255, 255);
+  border: 5px ridge rgb(240, 240, 240);
+  background-color:rgb(78, 78, 78);
+
 }
 
 .help-button {
@@ -56,6 +62,7 @@
   background-image: url(../Utilities/buttons/Help_button.png);
   background-size: cover;
   background-position: center;
+  margin: 1em;
 }
 
 .help-button:hover {
@@ -75,7 +82,7 @@
 }
 
 .pokemon-sprite {
-  height: 10vw;
+  height: 15vw;
   cursor: pointer;
 }
 
@@ -100,33 +107,11 @@ button:hover{
   transition: all 0.1s ease-in-out;
 }
 
-<<<<<<< HEAD
-.pokemon-details {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -40%);
-  text-align: center;
-  background-color: transparent;
-  padding: 20px;
-  max-width: 100%; 
-  max-height: 80%; 
-  min-height: auto;
-  overflow-y: auto; 
+button:active{
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
 }
 
-.HUD {
-  margin-top: .5em;
-  margin-bottom: 1.5em;
-  color: #000000;
-  outline: 5px ridge;
-  border-radius: 15px;
-  border: 5px ridge rgb(186, 186, 186);
-  background-color: rgb(255, 255, 255);
-}
-
-=======
->>>>>>> f56c7662365c86e90109c1a254cde4af7901fb24
 .pokemon-name-level {
   display: block;
   width: 65%;
