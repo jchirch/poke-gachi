@@ -1,21 +1,55 @@
 {
-  "id": 4,
-  "type": "pokemon",
-  "attributes": 
+  "data": [
     {
-      "name": "Shinx",
-      "description": "This Pokémon generates electricity by contracting\nits muscles. Excited trembling is a sign that Shinx\nis generating a tremendous amount of electricity.",
-      "gif_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/403.gif",
-      "cry_url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/403.ogg",
-      "small_img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/403.png",
-      "level": 5,
-      "xp": 0,
-      "energy": 100,
-      "max_energy": 150,
-      "happiness": 80,
-      "created_at": "Sun, 03 Nov 2024 23:33:08.958121000 UTC +00:00",
-      "updated_at": "Sun, 03 Nov 2024 23:33:08.958121000 UTC +00:00",
-      "trainer_id": 1
+      "id": "3",
+      "type": "pokemon",
+      "attributes": {
+        "name": "Squirtle",
+        "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+        "gif_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/7.gif",
+        "cry_url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg",
+        "small_img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+        "level": 7,
+        "xp": 0,
+        "energy": 12,
+        "max_energy": 110,
+        "happiness": 100,
+        "trainer_id": 1
+      }
+    },
+    {
+      "id": "2",
+      "type": "pokemon",
+      "attributes": {
+        "name": "Charmander",
+        "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely",
+        "gif_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/4.gif",
+        "cry_url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg",
+        "small_img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+        "level": 27,
+        "xp": 20,
+        "energy": 16,
+        "max_energy": 110,
+        "happiness": 32,
+        "trainer_id": 1
+      }
+    },
+    {
+      "id": "1",
+      "type": "pokemon",
+      "attributes": {
+        "name": "Bulbasaur",
+        "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+        "gif_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif",
+        "cry_url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg",
+        "small_img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        "level": 8,
+        "xp": 0,
+        "energy": 0,
+        "max_energy": 110,
+        "happiness": 100,
+        "trainer_id": 1
+      }
     }
-  
+  ]
 }
