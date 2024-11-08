@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Poké-Gochi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
 
-## Available Scripts
+Welcome to the world of Poké-Gochi, an interactive app where users ("Trainers") can interact, level up, and train virtual Pokémon! By consuming a companion API that serializes data from the official [PokéAPI](https://pokeapi.co/), this app renders GIF's and data while providing functionality for trainers to interact with their Pokémon! The project was completed by a team of five developers over a focused 10-day sprint.
 
-In the project directory, you can run:
+Deployed on xxxxx: [here is the url name](example.com)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To set up: clone this repo into new directory on local device.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Install Dependencies: run `npm install`
 
-### `npm test`
+Open in browser: run `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Testing
 
-### `npm run build`
+cypress instructions here
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Preview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributors
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Chirchirillo, Joe
+  - [Github](https://github.com/jchirch)
+  - [LinkedIn](https://www.linkedin.com/in/joechirchirillo/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Delaney, Kyle
+  - [Github](https://github.com/kylomite)
+  - [LinkedIn](https://www.linkedin.com/in/kylehamptondelaney/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- De La Rosa, Melchor
+  - [Github](https://github.com/MDelarosa1993)
+  - [LinkedIn](https://www.linkedin.com/in/melchordelarosa/)
 
-## Learn More
+- Fallenius, Karl
+  - [Github](https://github.com/SmilodonP)
+  - [LinkedIn](https://www.linkedin.com/in/karlfallenius/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- O'leary, Ryan
+  - [Github](https://github.com/ROlearyPro)
+  - [LinkedIn](https://www.linkedin.com/in/ryan-o-leary-6a963b211/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tech Stack
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React version: 18.3.1
+Cypress version: 13.15.1
+Node version: 18.17.1
