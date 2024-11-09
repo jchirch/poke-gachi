@@ -46,7 +46,7 @@ function MainPage() {
   let bgTemp = bgArray[Math.round(Math.random() * bgArray.length)];
 
   useEffect(() => {
-    fetchData(2);
+    fetchData(5);
   }, [])
 
   useEffect(() => {
@@ -56,7 +56,7 @@ function MainPage() {
   const levelUp = () => {
     let newLevel = Math.max(pokemonData.data.attributes.level + 1, 1)
     alert("Your Pokemon Has Leveled Up!")
-    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +93,7 @@ function MainPage() {
       return
     }
 
-    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function MainPage() {
   function fetchData(identifier) {
 
 
-    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/${identifier}`)
 
       .then(response => {
         if (!response.ok) {
@@ -156,7 +156,7 @@ function MainPage() {
       alert("Your Pokemon is Stuffed!!! Try training to burn off some energy")
       return;
     }
-    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`, {
+    fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/${pokemonData.data.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -189,7 +189,7 @@ function MainPage() {
       return
     }
     fetch(
-      `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
+      `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/${pokemonData.data.id}`,
       {
         method: "PATCH",
         body: JSON.stringify({ happiness: newHappiness }),
