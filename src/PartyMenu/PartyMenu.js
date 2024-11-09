@@ -1,12 +1,16 @@
 import './PartyMenu.css';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PartyMenu({ fetchSpecificPokemon }) {
   const [pokemonPartyData, setPokemonPartyData] = useState(null);
-
+  const navigate = useNavigate();
   function fetchData() {
     fetch("https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons")
       .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
         console.log("Received response:", response);
         return response.json();
       })
@@ -16,6 +20,7 @@ function PartyMenu({ fetchSpecificPokemon }) {
       })
       .catch(error => {
         console.error('Fetch operation failed:', error);
+        navigate(`/ErrorPage/${error}`)
       });
   }
 

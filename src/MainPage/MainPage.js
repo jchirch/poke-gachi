@@ -1,3 +1,4 @@
+import styles from './MainPage.css';
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
@@ -157,7 +158,9 @@ function MainPage() {
     })
       .then(response => {
         if (!response.ok) {
+          console.log(response)
           throw new Error("Network response was not ok");
+
         }
         response.json()
       })
