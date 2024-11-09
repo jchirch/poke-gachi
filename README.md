@@ -4,19 +4,23 @@
 
 Welcome to the world of Poké-Gochi, an interactive app where users ("Trainers") can interact, level up, and train virtual Pokémon! By consuming a companion API that serializes data from the official [PokéAPI](https://pokeapi.co/), this app renders GIF's and data while providing functionality for trainers to interact with their Pokémon! The project was completed by a team of five developers over a focused 10-day sprint.
 
-Deployed on xxxxx: [here is the url name](example.com)
+Deployed on Vercel: [Poke-gochi](https://poke-gochi.vercel.app/)
 
 ## Installation
 
 To set up: clone this repo into new directory on local device.
 
-Install Dependencies: run `npm install`
+Install Dependencies: Run the following command to install all necessary dependencies.
+- run `npm install`
 
-Open in browser: run `npm start`
+Start the application locally and open it in your browser. 
+- run `npm start`
 
 ## Testing
 
-cypress instructions here
+Ensure all Cypress dependencies are installed by running npm install as shown in the Installation section.
+
+Open the Cypress testing browser with: run 'npm run cypress'
 
 ## Preview
 
@@ -47,6 +51,6 @@ cypress instructions here
 
 ## Tech Stack
 
-React version: 18.3.1
-Cypress version: 13.15.1
-Node version: 18.17.1
+- React version: 18.3.1
+- Cypress version: 13.15.1
+- Node version: 18.17.1

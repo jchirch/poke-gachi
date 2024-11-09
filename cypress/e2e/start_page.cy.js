@@ -13,14 +13,15 @@ describe('Start spec', () => {
 
   it('Should correctly show logo and entry buttons on the start page.', () => {
     cy.get('.Logo').should("exist")
-    cy.get('.start-header').should("exist")
-    cy.get('.start-words').should("exist").and('contain', 'Current element is the start page.')
+    cy.get('.start-area').should("exist")
+    cy.get('.click-here').should("exist")
+    cy.get('.click-here > img').should("exist")
   })
 
   it('Should navigate to play screen when link is clicked', () => {
-    cy.get('.start-words').should("exist").click();
+    cy.get('.click-here > img').should("exist");
+    cy.get('.click-here > img').click();
     cy.get('.play-container').should("be.visible");
     cy.get('.Logo').should("be.visible");
   })
-
 });

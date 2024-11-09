@@ -4,6 +4,7 @@ describe('feeding spec', () => {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
+
     cy.visit('http://localhost:3000/Main/userval');
     cy.get('.Logo').should("be.visible");
     cy.get('.HUD').should('be.visible')
@@ -11,6 +12,7 @@ describe('feeding spec', () => {
     cy.get('.EnergyBar').should('be.visible')
     cy.get('.ExperienceBar').should('be.visible')
     cy.get('.help-button').should('be.visible')
+
   })
 
   it('should be able to click the feed button and energy would go up', () => {

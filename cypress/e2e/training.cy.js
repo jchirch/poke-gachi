@@ -5,6 +5,7 @@ describe('training spec', () => {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
+
     cy.visit('http://localhost:3000/Main/userval');
     cy.get('.Logo').should("be.visible");
     cy.get('.HUD').should('be.visible')
@@ -39,4 +40,5 @@ describe('training spec', () => {
       expect(txt).to.contains("Your Pokemon is too exhausted to train, feed them to boost their energy");
     })
   })
+
 })

@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": "3",
+    "type": "pokemon",
+    "attributes": {
+      "name": "Squirtle",
+      "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+      "gif_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/7.gif",
+      "cry_url": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg",
+      "small_img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      "level": 7,
+      "xp": 0,
+      "energy": 12,
+      "max_energy": 110,
+      "happiness": 100,
+      "trainer_id": 1
+    }
+  }
+}
