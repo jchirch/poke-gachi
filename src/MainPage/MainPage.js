@@ -119,11 +119,9 @@ function MainPage() {
       levelUp()
       return
     }
-    
   };
 
   function fetchData(identifier) {
-  
   
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
 
