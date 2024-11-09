@@ -32,6 +32,11 @@ import partyButton from '../Utilities/buttons/party_button.png'
 
 function MainPage() {
   const navigate = useNavigate();
+  const { pokeId } = useParams();
+
+  const playAreaPlaceholder = document.getElementById('.play-area');
+  const [partyPopUpMenu, setPartyPopUpMenu] = useState();
+
   const [showParty, setShowParty] = useState(false);
   const handlePartyVisible = () => setShowParty(!showParty);
   const [showHelp, setShowHelp] = useState(false);
