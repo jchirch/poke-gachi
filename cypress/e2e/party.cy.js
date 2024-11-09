@@ -10,8 +10,13 @@ describe('party spec', () => {
       fixture: 'PkmnData'
     }).as('getParty');
 
-    cy.visit('http://localhost:3000/');
-    cy.get('.start-words').click()
+    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/3', {
+      statusCode: 200,
+      fixture: 'single_squirtle'
+    }).as('getSingleSquirtle');
+
+    cy.visit('http://localhost:3001/');
+    cy.get('.click-here > img').click();
   })
 
   it('should have a party button my play screen', () => {
