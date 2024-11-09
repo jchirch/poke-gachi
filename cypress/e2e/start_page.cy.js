@@ -4,7 +4,7 @@ describe('Start spec', () => {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3001/');
   })
 
   it('Should correctly show title screen on start page', () => {
