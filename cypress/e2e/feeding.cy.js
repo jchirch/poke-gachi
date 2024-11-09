@@ -4,7 +4,7 @@ describe('feeding spec', () => {
       statusCode: 200,
       fixture: 'PkmnData'
     }).as('getParty');
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3001/');
   })
   it('Should correctly show energy values', () => {
 

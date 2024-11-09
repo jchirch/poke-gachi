@@ -4,7 +4,7 @@ describe('help spec', () => {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3001/');
     cy.get('.click-here > img').click();
   })
 
