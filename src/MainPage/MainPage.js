@@ -171,13 +171,15 @@ function MainPage() {
     }, 50);
 
     let pkmnCry = new Audio(pokemonData.data.attributes.cry_url)
-    pkmnCry.play();
+  
     let newHappiness = Math.min(pokemonData.data.attributes.happiness + 5, 100);
-if(pokemonData.data.attributes.happiness === 100){
+
+    if(pokemonData.data.attributes.happiness === 100){
       pkmnCry.play();
       alert("Your Pokemon is overstimulated, try playing with it later")
       return
     }
+    
     fetch(
       `https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${pokemonData.data.id}`,
       {

@@ -20,24 +20,10 @@
     text-decoration: none;
   }
 
-  a:visited {
-    /* color: darkblue; */
-    /* background-color: transparent; */
-    /* text-decoration: none; */
-
-  }
-
 }
 .Logo {
-  display: flex;
-  background-repeat: no-repeat;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
- 
   cursor: pointer;
+  min-height: 150px;
 }
 
 
-.App-link {
-  color: #61dafb;
-}
