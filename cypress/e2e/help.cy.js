@@ -5,7 +5,7 @@ describe('help spec', () => {
       fixture: 'single_pokemon'
     }).as('getParty');
     cy.visit('http://localhost:3000/');
-    cy.get('.start-words').click();
+    cy.get('.click-here > img').click();
   })
 
 it('Should correctly show button', () => {

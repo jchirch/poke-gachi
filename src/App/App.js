@@ -35,7 +35,8 @@ function App() {
       </img>
       
         <Routes>
-        <Route path="/*" element={<ErrorPage />}/>
+        <Route path='/error/:code' element={<ErrorPage />}></Route>
+        <Route path='*' element={<ErrorPage error={404} />}></Route>
         <Route path="/" element={<StartPage />}/>
         <Route path="/Main/:UserVal" element={<MainPage params={params} />} />
           <Route path="/Main/:UserVal/Stats" element={<StatPage params={params} />} />
