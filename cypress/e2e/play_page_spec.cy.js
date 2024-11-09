@@ -5,7 +5,7 @@ describe('Play spec', () => {
       fixture: 'single_pokemon'
     }).as('getParty');
     cy.visit('http://localhost:3001');
-    cy.get('.start-words').click();
+    cy.get('.click-here > img').click();
   })
 
   it('Can render expected attributes on play area screen', () => {
@@ -27,7 +27,8 @@ describe('Play spec', () => {
 
   it('Can navigate back to the start screen', () => {
     cy.get('.Logo').should("exist").click()
-    cy.get('.start-header').should("exist")
-    cy.get('.start-words').should("exist").and('contain', 'Current element is the start page.')
+    cy.get('.start-area').should("exist")
+    cy.get('.click-here').should("exist")
+    cy.get('.click-here > img').should("exist")
   })
 })
