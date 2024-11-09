@@ -1,6 +1,6 @@
 describe('Play spec', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
+    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
