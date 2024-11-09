@@ -1,6 +1,6 @@
 describe('feeding spec', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
+    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
@@ -16,7 +16,7 @@ describe('feeding spec', () => {
   })
 
   it('should be able to click the feed button and energy would go up', () => {
-    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
+    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
       statusCode: 200,
       body: {
         energy: 30
@@ -27,7 +27,7 @@ describe('feeding spec', () => {
   })
   
   it("Should show an alert when Feed button is clicked up energy is full", () => {
-    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
+    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
       statusCode: 200,
       body: {
         energy: 110
