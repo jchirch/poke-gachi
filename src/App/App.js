@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <img className="Logo" onClick={() => {navigate(`/`);}} src={'https://fontmeme.com/permalink/241101/6f970496b8e7aa40eddeec38e543fbb0.png'}>
+      <img className="Logo" onClick={() => {navigate(`/`);}} src={'https://fontmeme.com/permalink/241101/6f970496b8e7aa40eddeec38e543fbb0.png'} alt="return to home screen">
       </img>
       
         <Routes>
