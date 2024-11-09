@@ -80,6 +80,8 @@ function MainPage() {
     })
     .catch(error => {
       console.error("Update Failed:", error);
+      navigate(`/ErrorPage/${error}`)
+
     });  
   };
 
@@ -113,6 +115,8 @@ function MainPage() {
     })
     .catch(error => {
       console.error("Update Failed:", error);
+      navigate(`/ErrorPage/${error}`)
+
     });
 
     if(newXp > 99){
@@ -128,6 +132,10 @@ function MainPage() {
     fetch(`https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/${identifier}`)
 
       .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
         console.log("Received response:", response);
         return response.json()
       })
@@ -137,6 +145,8 @@ function MainPage() {
       })
       .catch(error => {
         console.error('Fetch operation failed:', error);
+        navigate(`/ErrorPage/${error}`)
+
       });
   }
   
@@ -153,7 +163,13 @@ function MainPage() {
       },
       body: JSON.stringify({ energy: newEnergy })
     })
-    .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          console.log(response)
+          throw new Error("Network response was not ok");
+        }
+        response.json()
+      })
     .then(data => {
       console.log("Energy updated:", data);
       setPokemonData(data)
