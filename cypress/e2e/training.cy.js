@@ -1,7 +1,7 @@
 import energy from '../fixtures/single_pokemon.json'
 describe('training spec', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
+    cy.intercept('GET', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
       statusCode: 200,
       fixture: 'single_pokemon'
     }).as('getParty');
@@ -16,7 +16,7 @@ describe('training spec', () => {
   })
 
   it('should be able to click the train button and energy would go down and xp up', () => {
-    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
+    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
       statusCode: 200,
       body: {
         energy: 10,
@@ -28,7 +28,7 @@ describe('training spec', () => {
   })
 
   it('should display a message when xp is drained', () => {
-    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/3/pokemons/5', {
+    cy.intercept('PATCH', 'https://obscure-caverns-08355-6f81aa04bbe3.herokuapp.com/api/v1/trainers/1/pokemons/2', {
       statusCode: 200,
       body: {
         energy: 0,
@@ -40,5 +40,4 @@ describe('training spec', () => {
       expect(txt).to.contains("Your Pokemon is too exhausted to train, feed them to boost their energy");
     })
   })
-
 })
